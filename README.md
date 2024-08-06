@@ -5,7 +5,7 @@ See [CHANGE.log](./CHANGE.log)
 
 ## How to start server
 
-### Windows or Linux with [PowerShell 7](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows)
+### Windows with [PowerShell 7](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows)
 
 ``` PowerShell
 git clone https://github.com/UraraChiya/GregTech-Leisure-Server
