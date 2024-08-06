@@ -34,7 +34,7 @@ $Script:JVMParameters = '-XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPause
 $Script:AutoRestart = [bool]$true
 
 # 最短重启时间，以秒为单位，短于这个时间将不会自动重启
-$Script:MinRestartTime = '1'
+$Script:MinRestartTime = '120'
 
 # 自定义启动命令（Custom 需要）
 $Script:CustomLaunchCommand = ''

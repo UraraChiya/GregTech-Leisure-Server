@@ -4,6 +4,8 @@
 # Server Starter Version 0.2
 
 <# ChangeLog
+    v0.4 06/08/2024
+    支援 Linux
     v0.3 05/06/2024
     增加自定义核心
     v0.2.1 25/04/2024
@@ -33,16 +35,25 @@ $FabricVersionAPI = 'https://meta.fabricmc.net/v2/versions/loader/'
 Import-Module ./ReadInput.psm1
 Set-Location $PSScriptRoot
 
+# 检测是否为管理员身份运行
+if ($IsWindows) {
+    if ( (New-Object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
+        Write-Host '警告！不建议以管理员权限运行。' -ForegroundColor Yellow
+        Suspend-Script
+    }
+}
+else {
+    if ((id -u 2>&1) -eq 0) {
+        Write-Host '警告！不建议以 root 权限运行。' -ForegroundColor Yellow
+        Suspend-Script
+    }
+}
+
+
 # 暂停脚本
 function Suspend-Script {
     Write-Host '按任意键继续' -ForegroundColor Yellow
     $host.ui.RawUI.ReadKey('NoEcho,IncludeKeyDown') > $null
-}
-
-# 检测是否为管理员身份运行
-if ( (New-Object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
-    Write-Host '警告！不建议以管理员权限运行。' -ForegroundColor Yellow
-    Suspend-Script
 }
 
 # 退出脚本
@@ -266,21 +277,36 @@ function Import-Config {
 # 检查 Java 兼容性
 function Test-Java {
     if (-not $Script:SkipJavaCompatibilityCheck) {
-        $JavaVersion = (Get-Command $Script:Java).Version
+
+        $Bit = if ($IsWindows) {
+            cmd /c "`"$Script:Java`" -version 2>&1"
+        }
+        else {
+            "`"$Script:Java`" -version 2>&1" | bash
+        }
+
+        # 32 位检测
+        if ( $Bit -contains '32-Bit') {
+            Write-Host "警告！ 检测到 32 位 Java！ 强烈建议使用 64 位版本的 Java！" -ForegroundColor Yellow
+            Suspend-Script
+        }
+
+        # 版本检测       
+        $JavaVersion = if ($IsWindows) {
+            (Get-Command $Script:Java).Version
+        }
+        else {
+            [version][regex]::Match($Bit, 'version "([0-9\._]+)"').Groups[1].Value.Replace('_', '.')
+        }
         if ($Script:MinecraftVersion.Minor -ge 17) {
             if ($JavaVersion.Major -lt 17) {
                 Exit-Script "Minecraft $Script:MinecraftVersion 需要 Java 17 以上，请修改 Java 命令行配置`n如没有 Java 17 可前往 https://learn.microsoft.com/zh-cn/java/openjdk/download 获取"
             }
         }
         else {
-            if ($JavaVersion.Major -ne 8) {
+            if ($JavaVersion.Minor -ne 1 -or $JavaVersion.Major -ne 8) {
                 Exit-Script "Minecraft $Script:MinecraftVersion 需要 Java 8，请修改 Java 命令行配置`n如没有 Java 8 可前往 https://learn.microsoft.com/zh-cn/java/openjdk/download 获取"
             }
-        }
-        $Bit = cmd /c "`"$Script:Java`" -version 2>&1"
-        if ( $Bit -contains '32-Bit') {
-            Write-Host "警告！ 检测到 32 位 Java！ 强烈建议使用 64 位版本的 Java！" -ForegroundColor Yellow
-            Suspend-Script
         }
     }
     else {
@@ -344,7 +370,12 @@ function Install-Server {
             # 安装 Forge
             try {
                 Write-Host '开始安装 Forge'
-                cmd /c "`"$Script:Java`" -jar `"$Destination`" --installServer"
+                if ($IsWindows) {
+                    cmd /c "`"$Script:Java`" -jar `"$Destination`" --installServer"
+                }
+                else {
+                    "`"$Script:Java`" -jar `"$Destination`" --installServer" | bash
+                }
                 if (-not (Test-Path $ForgeJarLocation -PathType Leaf)) {
                     throw
                 }
@@ -403,18 +434,23 @@ function Request-Eula {
 function Get-LaunchCommand {
     $Script:ServerRunCommand = switch ($Script:ModLoader) {
         'Vanilla' {
-            '-jar "' + (Join-Path $PSScriptRoot "server.jar") + '"'
+            ('-jar "{0}"' -f (Join-Path $PSScriptRoot "server.jar"))
         }
         'Forge' {
             if ($Script:MinecraftVersion.Minor -ge 17) {
-                '@"' + (Join-Path $PSScriptRoot "libraries/net/minecraftforge/forge/$Script:MinecraftVersion-$Script:ModLoaderVersion/win_args.txt") + '"'
+                if ($IsWindows) {
+                    ('@"{0}"' -f (Join-Path $PSScriptRoot "libraries/net/minecraftforge/forge/$Script:MinecraftVersion-$Script:ModLoaderVersion/win_args.txt"))
+                }
+                else {
+                    ('@"{0}"' -f (Join-Path $PSScriptRoot "libraries/net/minecraftforge/forge/$Script:MinecraftVersion-$Script:ModLoaderVersion/unix_args.txt"))
+                }
             }
             else {
-                '-jar "' + (Join-Path $PSScriptRoot "forge-$Script:MinecraftVersion-$Script:ModLoaderVersion.jar") + '"'
+                ('-jar "{0}"' -f (Join-Path $PSScriptRoot "forge-$Script:MinecraftVersion-$Script:ModLoaderVersion.jar"))
             }
         }
         'Fabric' {
-            '-jar "' + (Join-Path $PSScriptRoot "fabric-server-mc.$Script:MinecraftVersion-loader.$Script:ModLoaderVersion-launcher.$Script:ModLoaderInstallerVersion.jar") + '"'
+            ('-jar "{0}"' -f (Join-Path $PSScriptRoot "fabric-server-mc.$Script:MinecraftVersion-loader.$Script:ModLoaderVersion-launcher.$Script:ModLoaderInstallerVersion.jar"))
         }
         'Custom' {
             $Script:CustomLaunchCommand
@@ -445,12 +481,34 @@ do {
     Write-Host "重启次数：$RestartTime"
     $host.ui.RawUI.WindowTitle = "$ServerName | 重启次数：$RestartTime"
     $StartTime = Get-Date -UFormat '%s'
-    cmd /c "`"$Script:Java`" -Xmx$MaxMemory -Xms$MinMemory $JVMParameters $ServerRunCommand nogui"
+    if ($IsWindows) {
+        cmd /c "`"$Script:Java`" -Xmx$MaxMemory -Xms$MinMemory $JVMParameters $ServerRunCommand nogui"
+    }
+    else {
+        "`"$Script:Java`" -Xmx$MaxMemory -Xms$MinMemory $JVMParameters $ServerRunCommand nogui" | bash
+    }
+    if ($Script:AutoRestart -and ((Get-Date -UFormat '%s') - $StartTime -ge $MinRestartTime)) {
+        Write-Host '服务器将在 3 秒后重启，按 q 键以阻止' -ForegroundColor Yellow
+        $count = 0
+        $key = $null
+        $QuitKey = 81 #Character code for 'q' key.
+        while ($count -le 12) {
+            if ($host.UI.RawUI.KeyAvailable) {
+                $key = $host.ui.RawUI.ReadKey("NoEcho,IncludeKeyUp")
+                if ($key.VirtualKeyCode -eq $QuitKey) {
+                    Exit-Script
+                }
+            }
+            $count++
+            Start-Sleep -m 250
+        }
+    }
+    else {
+        Exit-Script -Message '未使能自动重启或重启时间过短'
+    }
     $RestartTime++
 } while (
-    ((Get-Date -UFormat '%s') - $StartTime -ge $MinRestartTime)`
-        -and ($null -eq (Read-HostWithTimeout -Message '3 秒后自动重启，按下回车以终止重启' -Timeout 3000))`
-        -and $Script:AutoRestart
+    $true
 )
 
 Exit-Script

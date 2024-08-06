@@ -15,7 +15,6 @@ eula.txt
 forge*.log
 ops.json
 rhino.local.properties
-run.*
 server.properties
 usercache.json
 whitelist.json

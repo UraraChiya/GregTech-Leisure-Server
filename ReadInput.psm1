@@ -246,66 +246,6 @@ function Read-InputString {
     }
 }
 
-<#
-    超时输入
-#>
-Function Read-HostWithTimeout {
-    param(
-        [string]$Message = "请输入内容: ",
-        [string]$DefaultValue,
-        [System.ConsoleColor]$PromptBackGroundColor = $Host.UI.RawUI.BackgroundColor,
-        [System.ConsoleColor]$PromptForeGroundColor = $Host.UI.RawUI.ForegroundColor,
-        [int]$Timeout = 5000,
-        [string]$TimeoutHint = "输入超时",
-        [System.ConsoleColor]$HintBackgroundColor = $Host.UI.RawUI.BackgroundColor,
-        [System.ConsoleColor]$HintForeGroundColor = [System.ConsoleColor]::Yellow
-    )
-    # 在这里调用输出提示的内容而不是在新进程里面提示是因为新进程提示的内容会被计入返回值，这里就不会
-    Write-Host ($Message + "：") -ForegroundColor $PromptForeGroundColor -BackgroundColor $PromptBackGroundColor -NoNewline
-
-    $res = try {
-        # Windows PowerShell会在超时结束抛出异常，所以这里需要定义异常可捕捉
-        $ErrorActionPreference = 'Stop'
-        # 新开线程执行超时读取的逻辑，注意，这里跟了一个timeout的参数，这个参数内部可以读取到
-        powershell.exe -Command {
-            param($Timeout)
-            # 在这个进程里面新开一个Powershell线程，线程之间共享控制台对象
-            $InitialSessionState = [initialsessionstate]::CreateDefault()
-            $InitialSessionState.Variables.Add(
-                [System.Management.Automation.Runspaces.SessionStateVariableEntry]::new(
-                    "ThreadContext",
-                    @{Host = $Host },
-                    "share host between threads"
-                )
-            )
-            $PSThread = [powershell]::Create($InitialSessionState)
-            $null = $PSThread.AddScript{
-                $ThreadContext.Host.UI.ReadLine() # 执行读取控制台操作
-            }
-            # 开始异步执行创建好的对象，并等待timeout秒无结果之后杀死本进程
-            $Job = $PSThread.BeginInvoke()
-            if (-not $Job.AsyncWaitHandle.WaitOne($Timeout)) {
-                Get-Process -Id $PID | Stop-Process
-            }
-            else {
-                return $PSThread.EndInvoke($Job)
-            }
-        } -args $Timeout
-    }
-    catch {
-        # Windows PowerShell超时会执行这里的代码
-        Write-Host $TimeoutHint -ForegroundColor $HintForeGroundColor -BackgroundColor $HintBackGroundColor
-    }
-    # .Net Core PowerShell超时会执行这里的代码
-    if ($null -eq $res -and $PSVersionTable.PSEdition -eq "Core") {
-        Write-Host $TimeoutHint -ForegroundColor $HintForeGroundColor -BackgroundColor $HintBackGroundColor
-    }
-    if ($null -eq $res -and -not [string]::IsNullOrWhiteSpace($DefaultValue)) {
-        $res = $DefaultValue
-    }
-    return $res
-}
-
 
 <# 接受输入输出模板
 function FunctionName {
