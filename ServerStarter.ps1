@@ -485,7 +485,8 @@ do {
         cmd /c "`"$Script:Java`" -Xmx$MaxMemory -Xms$MinMemory $JVMParameters $ServerRunCommand nogui"
     }
     else {
-        "`"$Script:Java`" -Xmx$MaxMemory -Xms$MinMemory $JVMParameters $ServerRunCommand nogui" | bash
+        "rm `$0`n`"$Script:Java`" -Xmx$MaxMemory -Xms$MinMemory $JVMParameters $ServerRunCommand nogui" | Out-File do_not_run_me
+        bash do_not_run_me
     }
     if ($Script:AutoRestart -and ((Get-Date -UFormat '%s') - $StartTime -ge $MinRestartTime)) {
         Write-Host '服务器将在 3 秒后重启，按 q 键以阻止' -ForegroundColor Yellow
