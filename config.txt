@@ -1,7 +1,7 @@
 # 配置文件，可修改以下等号后的内容
 
 # 服务器（或模组包）名称（将在标题栏显示），可略过
-$Script:ServerName = 'GTL-6ffaa76'
+$Script:ServerName = 'GTL-02ef905'
 
 # 模组加载器 'Vanilla', 'Forge', 'Custom'
 $Script:ModLoader = 'Forge'
