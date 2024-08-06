@@ -21,3 +21,8 @@ cd GregTech-Leisure-Server
 java -jar forge-1.20.1-47.3.5-installer.jar --installServer
 bash start.sh
 ```
+
+## How to uodate server
+```
+git pull https://github.com/UraraChiya/GregTech-Leisure-Server
+```
