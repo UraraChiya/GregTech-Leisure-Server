@@ -1,0 +1,41 @@
+# 配置文件，可修改以下等号后的内容
+
+# 服务器（或模组包）名称（将在标题栏显示），可略过
+$Script:ServerName = 'GTL-6ffaa76'
+
+# 模组加载器 'Vanilla', 'Forge', 'Custom'
+$Script:ModLoader = 'Forge'
+
+# 模组加载器安装器版本（Fabric 需要此项）
+$Script:ModLoaderInstallerVersion = [version]'0.0.1'
+
+# MineCraft 版本 '1.20.1', '1.19.2', 等
+$Script:MinecraftVersion = [version]'1.20.1'
+
+# 模组加载器版本，原版可忽略此设置
+$Script:ModLoaderVersion = [version]'47.3.5'
+
+# Java 命令行，可填写 “java.exe” 的路径
+$Script:Java = 'java'
+
+# 是否跳过 Java 兼容性检查
+$Script:SkipJavaCompatibilityCheck = [bool]$false
+
+# 最小内存，以字节为单位，可输入 “2000MB”，“4GB” 等
+$Script:MinMemory = 2147483648
+
+# 最大内存，以字节为单位，可输入 “2000MB”，“4GB” 等
+$Script:MaxMemory = 8589934592
+
+# JVM 参数，不要包含内存设置（-Xmx -Xms），不知道可留空
+$Script:JVMParameters = '-XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:G1NewSizePercent=30 -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20 -XX:G1HeapWastePercent=5 -XX:G1MixedGCCountTarget=4 -XX:InitiatingHeapOccupancyPercent=15 -XX:G1MixedGCLiveThresholdPercent=90 -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 -XX:+PerfDisableSharedMem -XX:MaxTenuringThreshold=1 -Dusing.aikars.flags=https://mcflags.emc.gs -Daikars.new.flags=true'
+
+# 使能自动重启
+$Script:AutoRestart = [bool]$true
+
+# 最短重启时间，以秒为单位，短于这个时间将不会自动重启
+$Script:MinRestartTime = '1'
+
+# 自定义启动命令（Custom 需要）
+$Script:CustomLaunchCommand = ''
+
