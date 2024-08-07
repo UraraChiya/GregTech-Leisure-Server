@@ -35,6 +35,13 @@ $FabricVersionAPI = 'https://meta.fabricmc.net/v2/versions/loader/'
 Import-Module ./ReadInput.psm1
 Set-Location $PSScriptRoot
 
+
+# 暂停脚本
+function Suspend-Script {
+    Write-Host '按任意键继续' -ForegroundColor Yellow
+    $host.ui.RawUI.ReadKey('NoEcho,IncludeKeyDown') > $null
+}
+
 # 检测是否为管理员身份运行
 if ($IsWindows) {
     if ( (New-Object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
@@ -47,13 +54,6 @@ else {
         Write-Host '警告！不建议以 root 权限运行。' -ForegroundColor Yellow
         Suspend-Script
     }
-}
-
-
-# 暂停脚本
-function Suspend-Script {
-    Write-Host '按任意键继续' -ForegroundColor Yellow
-    $host.ui.RawUI.ReadKey('NoEcho,IncludeKeyDown') > $null
 }
 
 # 退出脚本
