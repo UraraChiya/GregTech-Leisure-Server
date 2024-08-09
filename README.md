@@ -34,3 +34,6 @@ bash run.sh
 cd GregTech-Leisure-Server
 git pull https://github.com/UraraChiya/GregTech-Leisure-Server
 ```
+
+# Need Client?
+See https://github.com/UraraChiya/GregTech-Leisure-Client
