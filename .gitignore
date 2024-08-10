@@ -1,5 +1,14 @@
 backups
 config/*client*
+config/ModernUI
+config/embeddium*
+config/jecharacters.toml
+config/jeresources*
+config/MouseTweaks.cfg
+config/oculus.properties
+config/packmenu.cfg
+config/sodium*
+config/storagedrawers*
 crash-reports
 ldlib
 libraries
