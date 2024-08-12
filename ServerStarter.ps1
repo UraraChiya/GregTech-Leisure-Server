@@ -1,7 +1,7 @@
 # 请直接运行，不要随意修改本脚本
 # Requires -Version 7
 
-# Server Starter Version 0.2
+# Server Starter Version 0.4
 
 <# ChangeLog
     v0.4 06/08/2024

@@ -1,5 +1,7 @@
 backups
 config/*client*
+config/ae2/client.json
+config/jei/jei-client.json
 config/ModernUI
 config/embeddium*
 config/jecharacters.toml

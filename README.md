@@ -13,6 +13,7 @@ Set-Location GregTech-Leisure-Server
 ./ServerStarter.ps1
 ```
 ## Traditional
+Download `forge-1.20.1-47.3.5-installer.jar`.
 ### Windows with cmd
 ``` shell
 git clone https://github.com/UraraChiya/GregTech-Leisure-Server
