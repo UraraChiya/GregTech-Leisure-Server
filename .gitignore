@@ -1,12 +1,13 @@
 backups
 config/*client*
 config/ae2/client.json
-config/jei/jei-client.json
+config/jei
 config/ModernUI
 config/embeddium*
 config/jecharacters.toml
 config/jeresources*
 config/MouseTweaks.cfg
+config/modernfix-*
 config/oculus.properties
 config/packmenu.cfg
 config/sodium*
