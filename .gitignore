@@ -3,6 +3,7 @@ config/*client*
 config/ae2/client.json
 config/jei
 config/ModernUI
+config/roughlyenoughitems
 config/embeddium*
 config/jecharacters.toml
 config/jeresources*
