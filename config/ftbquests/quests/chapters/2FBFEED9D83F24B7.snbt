@@ -6,12 +6,24 @@
 	icon: "gtceu:uiv_electric_motor"
 	id: "2FBFEED9D83F24B7"
 	order_index: 11
-	quest_links: [{
-		id: "57F5245E6B9E7B6C"
-		linked_quest: "6BB5ED6ECC43E30C"
-		x: -1.0d
-		y: -0.5d
-	}]
+	quest_links: [
+		{
+			id: "57F5245E6B9E7B6C"
+			linked_quest: "6BB5ED6ECC43E30C"
+			shape: "rsquare"
+			size: 2.0d
+			x: -2.0d
+			y: 0.0d
+		}
+		{
+			id: "4E0083FC60224675"
+			linked_quest: "23B418803D455368"
+			shape: "rsquare"
+			size: 2.0d
+			x: -2.0d
+			y: -2.0d
+		}
+	]
 	quests: [
 		{
 			dependencies: [
@@ -19,6 +31,7 @@
 				"28E04C03DD2C0854"
 			]
 			description: ["高能机器"]
+			icon_scale: 2.0d
 			id: "67588B6F4C26CF4C"
 			shape: "gear"
 			size: 1.2d
@@ -27,19 +40,20 @@
 				item: "gtceu:mass_fabricator"
 				type: "item"
 			}]
-			x: 0.5d
-			y: -2.0d
+			x: 2.0d
+			y: 2.0d
 		}
 		{
 			dependencies: ["6BB5ED6ECC43E30C"]
+			icon_scale: 2.0d
 			id: "0CCE2A9119B2B1C4"
 			tasks: [{
 				id: "59E90C6145AA300E"
 				item: "kubejs:naquadriatictaranium_coil_block"
 				type: "item"
 			}]
-			x: 0.5d
-			y: -0.5d
+			x: -2.0d
+			y: 2.0d
 		}
 		{
 			dependencies: [
@@ -49,27 +63,30 @@
 				"7C796A0CDAB038C9"
 			]
 			id: "7F79481263C17880"
+			size: 1.0d
 			tasks: [{
 				id: "47A684BB71106B1D"
 				item: "kubejs:cosmic_processing_unit_core"
 				type: "item"
 			}]
-			x: 6.5d
-			y: -2.0d
+			x: 8.0d
+			y: 4.0d
 		}
 		{
 			dependencies: [
 				"197ED8AA3CDFD841"
 				"76B16D5AEF5AE346"
 			]
+			hide_dependent_lines: true
+			icon_scale: 2.0d
 			id: "1F1FCB0CA5696FF1"
 			tasks: [{
 				id: "7064445D4522B0F9"
 				item: "kubejs:leptonic_charge"
 				type: "item"
 			}]
-			x: 3.5d
-			y: -5.0d
+			x: 4.0d
+			y: -2.0d
 		}
 		{
 			dependencies: [
@@ -77,48 +94,52 @@
 				"106303E7A3296E76"
 				"53AF03B663577CB0"
 			]
+			icon_scale: 2.0d
 			id: "28E91E5A98E3A8DD"
 			tasks: [{
 				id: "785069BBC7747ADC"
 				item: "kubejs:cosmic_processing_core"
 				type: "item"
 			}]
-			x: 8.0d
-			y: -2.0d
+			x: 10.0d
+			y: 6.0d
 		}
 		{
 			dependencies: ["28E91E5A98E3A8DD"]
 			description: ["在物理定律的极限下执行计算。"]
+			icon_scale: 2.0d
 			id: "596E4662227F4E38"
 			tasks: [{
 				id: "165EABF42AE36A02"
 				item: "kubejs:cosmic_processor"
 				type: "item"
 			}]
-			x: 8.0d
-			y: -0.5d
+			x: 12.0d
+			y: 6.0d
 		}
 		{
 			dependencies: ["596E4662227F4E38"]
+			icon_scale: 2.0d
 			id: "3569AD043F42762A"
 			tasks: [{
 				id: "59A8FB50CBC35EDE"
 				item: "kubejs:cosmic_assembly"
 				type: "item"
 			}]
-			x: 8.0d
-			y: 1.0d
+			x: 12.0d
+			y: 4.0d
 		}
 		{
 			dependencies: ["3569AD043F42762A"]
+			icon_scale: 2.0d
 			id: "37C0845F870CC835"
 			tasks: [{
 				id: "57129B74F6D1DE2E"
 				item: "kubejs:cosmic_computer"
 				type: "item"
 			}]
-			x: 8.0d
-			y: 2.5d
+			x: 12.0d
+			y: 2.0d
 		}
 		{
 			dependencies: [
@@ -126,14 +147,15 @@
 				"02401278940CE1F3"
 				"559836CC234447C0"
 			]
+			icon_scale: 2.0d
 			id: "6C6A3B91957A0B7B"
 			tasks: [{
 				id: "06F01AC2F2AAFC1A"
 				item: "kubejs:cosmic_mainframe"
 				type: "item"
 			}]
-			x: 6.5d
-			y: 2.5d
+			x: 14.0d
+			y: 0.0d
 		}
 		{
 			dependencies: ["6640D51725374A8F"]
@@ -144,8 +166,8 @@
 				title: "自由电子气"
 				type: "checkmark"
 			}]
-			x: 2.0d
-			y: -3.5d
+			x: 4.0d
+			y: 0.0d
 		}
 		{
 			dependencies: ["0CCE2A9119B2B1C4"]
@@ -155,8 +177,8 @@
 				item: "gtceu:black_titanium_ingot"
 				type: "item"
 			}]
-			x: 2.0d
-			y: -0.5d
+			x: 0.0d
+			y: 2.0d
 		}
 		{
 			dependencies: ["67588B6F4C26CF4C"]
@@ -168,8 +190,8 @@
 				title: "uu物质"
 				type: "checkmark"
 			}]
-			x: 0.5d
-			y: -3.5d
+			x: 2.0d
+			y: 0.0d
 		}
 		{
 			dependencies: [
@@ -177,16 +199,17 @@
 				"7819969E76A18F15"
 				"0FB0AFA8DD71B19F"
 			]
+			icon_scale: 2.0d
 			id: "74D84A4928FA0A35"
 			shape: "gear"
-			size: 1.2d
+			size: 2.0d
 			tasks: [{
 				id: "2C8FACD2B8237591"
 				item: "gtceu:space_probe_surface_reception"
 				type: "item"
 			}]
-			x: 2.0d
-			y: -2.0d
+			x: 0.0d
+			y: 8.0d
 		}
 		{
 			dependencies: ["74D84A4928FA0A35"]
@@ -197,16 +220,17 @@
 				title: "重轻子"
 				type: "checkmark"
 			}]
-			x: 5.0d
-			y: -2.0d
+			x: 8.0d
+			y: 8.0d
 		}
 		{
 			dependencies: ["1DAE3D00F91134F0"]
 			description: ["可以代替恒星锻炉"]
 			icon: "gtceu:dimensionally_transcendent_plasma_forge"
+			icon_scale: 2.0d
 			id: "2880531AF7540B24"
 			shape: "gear"
-			size: 1.2d
+			size: 2.0d
 			tasks: [
 				{
 					id: "2CA90B99536E4896"
@@ -219,22 +243,21 @@
 					type: "item"
 				}
 			]
-			x: 3.5d
-			y: 1.0d
+			x: 12.0d
+			y: -2.0d
 		}
 		{
-			dependencies: [
-				"1F1FCB0CA5696FF1"
-				"72E0B47367FD35CC"
-			]
+			can_repeat: false
+			dependencies: ["72E0B47367FD35CC"]
+			hide_dependent_lines: true
 			id: "5FFDF6751BFBD4BF"
 			tasks: [{
 				id: "196C44BA382A1EBB"
 				item: "gtceu:hassium_ingot"
 				type: "item"
 			}]
-			x: 6.5d
-			y: -5.0d
+			x: 8.0d
+			y: -2.0d
 		}
 		{
 			dependencies: [
@@ -247,8 +270,8 @@
 				item: "kubejs:ultrashort_pulse_laser"
 				type: "item"
 			}]
-			x: 8.0d
-			y: -3.5d
+			x: 6.0d
+			y: 6.0d
 		}
 		{
 			dependencies: [
@@ -261,8 +284,8 @@
 				item: "gtceu:oganesson_ingot"
 				type: "item"
 			}]
-			x: 5.0d
-			y: -6.5d
+			x: 8.0d
+			y: 0.0d
 		}
 		{
 			dependencies: [
@@ -274,20 +297,17 @@
 			description: ["夸克物质"]
 			id: "6D6BE75CB79C7901"
 			shape: "rsquare"
-			size: 1.1d
+			size: 1.0d
 			tasks: [{
 				id: "06F08AF642746072"
 				item: "gtceu:heavy_quark_degenerate_matter_ingot"
 				type: "item"
 			}]
-			x: 5.0d
-			y: -3.5d
+			x: 8.0d
+			y: 2.0d
 		}
 		{
-			dependencies: [
-				"1F1FCB0CA5696FF1"
-				"76B16D5AEF5AE346"
-			]
+			dependencies: ["1F1FCB0CA5696FF1"]
 			icon: "gtceu:quark_gluon_plasma_bucket"
 			id: "068D3872684D8A29"
 			tasks: [{
@@ -295,8 +315,8 @@
 				title: "夸克"
 				type: "checkmark"
 			}]
-			x: 5.0d
-			y: -5.0d
+			x: 6.0d
+			y: 0.0d
 		}
 		{
 			dependencies: ["67588B6F4C26CF4C"]
@@ -307,13 +327,14 @@
 				title: "拟裂变等离子体"
 				type: "checkmark"
 			}]
-			x: 3.5d
-			y: -2.0d
+			x: 4.0d
+			y: 2.0d
 		}
 		{
 			dependencies: [
 				"678E707F85CD2071"
 				"0D4ACF1CF1489C8D"
+				"6FE5409DB7A22427"
 			]
 			id: "5405B22C3320841E"
 			tasks: [{
@@ -321,25 +342,23 @@
 				item: "kubejs:cosmic_soc"
 				type: "item"
 			}]
-			x: 6.5d
-			y: -0.5d
+			x: 6.0d
+			y: 4.0d
 		}
 		{
-			dependencies: [
-				"28E04C03DD2C0854"
-				"6D6BE75CB79C7901"
-			]
+			dependencies: ["6D6BE75CB79C7901"]
 			description: ["强力混合"]
+			icon_scale: 2.0d
 			id: "29A581C935A339DD"
 			shape: "gear"
-			size: 1.2d
+			size: 1.0d
 			tasks: [{
 				id: "698C262A1833E468"
 				item: "gtceu:dimensionally_transcendent_mixer"
 				type: "item"
 			}]
-			x: 5.0d
-			y: -0.5d
+			x: 10.0d
+			y: 0.0d
 		}
 		{
 			dependencies: ["5FC4E86486278172"]
@@ -349,8 +368,8 @@
 				item: "kubejs:scintillator"
 				type: "item"
 			}]
-			x: 2.0d
-			y: 1.0d
+			x: -2.0d
+			y: 8.0d
 		}
 		{
 			dependencies: ["7C23CC6ADDC33EA0"]
@@ -360,8 +379,8 @@
 				item: "kubejs:scintillator_crystal"
 				type: "item"
 			}]
-			x: 0.5d
-			y: 1.0d
+			x: -2.0d
+			y: 6.0d
 		}
 		{
 			dependencies: ["1D7B6172DE330E6F"]
@@ -371,45 +390,45 @@
 				item: "gtceu:flerovium_ingot"
 				type: "item"
 			}]
-			x: 3.5d
-			y: -3.5d
+			x: 6.0d
+			y: 2.0d
 		}
 		{
-			dependencies: ["2ECB47CBE5DC6E49"]
 			id: "72E0B47367FD35CC"
 			tasks: [{
 				id: "1D9470C90A72EC38"
 				item: "gtceu:titanium_50_ingot"
 				type: "item"
 			}]
-			x: 6.5d
-			y: -6.5d
+			x: 6.0d
+			y: -2.0d
 		}
 		{
 			dependencies: [
 				"5FFDF6751BFBD4BF"
 				"208FB88A70036325"
 			]
+			icon_scale: 2.0d
 			id: "078ADC3E0F3A6746"
+			size: 1.0d
 			tasks: [{
 				id: "10E756E205893B29"
 				item: "kubejs:photocoated_hassium_wafer"
 				type: "item"
 			}]
-			x: 8.0d
-			y: -5.0d
+			x: 4.0d
+			y: 6.0d
 		}
 		{
 			dependencies: ["5FFDF6751BFBD4BF"]
-			hide_dependent_lines: true
 			id: "0FB0AFA8DD71B19F"
 			tasks: [{
 				id: "6227D45032949460"
 				item: "kubejs:lepton_trap_crystal"
 				type: "item"
 			}]
-			x: 2.0d
-			y: -5.0d
+			x: -2.0d
+			y: 4.0d
 		}
 		{
 			dependencies: ["2E05225ADF4D7D31"]
@@ -420,11 +439,10 @@
 				item: "gtceu:degenerate_rhenium_dust"
 				type: "item"
 			}]
-			x: 3.5d
-			y: -6.5d
+			x: 2.0d
+			y: -2.0d
 		}
 		{
-			dependencies: ["66C0D17BAE340EB4"]
 			description: ["看起来很复杂"]
 			icon: "gtceu:photopolymer_bucket"
 			id: "208FB88A70036325"
@@ -433,19 +451,18 @@
 				title: "光聚合物溶液"
 				type: "checkmark"
 			}]
-			x: 8.0d
-			y: -6.5d
+			x: 2.0d
+			y: 6.0d
 		}
 		{
-			dependencies: ["66C0D17BAE340EB4"]
 			id: "5450D08C31AB23EF"
 			tasks: [{
 				id: "6282ECFD03A81811"
 				item: "kubejs:insulation_wire_assembly"
 				type: "item"
 			}]
-			x: 9.5d
-			y: -3.5d
+			x: 2.0d
+			y: 4.0d
 		}
 		{
 			dependencies: ["5FFDF6751BFBD4BF"]
@@ -457,8 +474,8 @@
 				title: "寰宇超导液"
 				type: "checkmark"
 			}]
-			x: 6.5d
-			y: -3.5d
+			x: 10.0d
+			y: 2.0d
 		}
 		{
 			dependencies: ["29A581C935A339DD"]
@@ -468,8 +485,8 @@
 				item: "gtceu:rareearth_ingot"
 				type: "item"
 			}]
-			x: 5.0d
-			y: 1.0d
+			x: 12.0d
+			y: 0.0d
 		}
 		{
 			dependencies: ["5FFDF6751BFBD4BF"]
@@ -487,8 +504,8 @@
 					type: "item"
 				}
 			]
-			x: 9.5d
-			y: -2.0d
+			x: 10.0d
+			y: 4.0d
 		}
 		{
 			dependencies: ["29A581C935A339DD"]
@@ -498,8 +515,8 @@
 				item: "gtceu:transition_ingot"
 				type: "item"
 			}]
-			x: 3.5d
-			y: -0.5d
+			x: 10.0d
+			y: -2.0d
 		}
 		{
 			dependencies: ["606C81F449ABCE5B"]
@@ -511,20 +528,46 @@
 				title: "γ射线光刻胶"
 				type: "checkmark"
 			}]
-			x: 6.5d
-			y: 1.0d
+			x: 4.0d
+			y: 4.0d
 		}
 		{
 			dependencies: ["2F82F4BCC261723A"]
 			description: ["非常传奇"]
 			id: "559836CC234447C0"
+			shape: "rsquare"
+			size: 2.0d
 			tasks: [{
 				id: "300AEC5CB1F10137"
 				item: "gtceu:legendarium_ingot"
 				type: "item"
 			}]
-			x: 5.0d
-			y: 2.5d
+			x: 14.0d
+			y: 8.0d
+		}
+		{
+			dependencies: ["23B418803D455368"]
+			id: "31AA3CEE0C967212"
+			tasks: [{
+				id: "2BF9417FE9A5FFC6"
+				item: "gtceu:uiv_energy_input_hatch"
+				type: "item"
+			}]
+			x: 0.0d
+			y: -2.0d
+		}
+		{
+			dependencies: ["6BB5ED6ECC43E30C"]
+			hide_dependency_lines: true
+			hide_dependent_lines: true
+			id: "6FE5409DB7A22427"
+			tasks: [{
+				id: "171F2644EC61E4C2"
+				item: "gtceu:grade_16_purified_water_bucket"
+				type: "item"
+			}]
+			x: 0.0d
+			y: 0.0d
 		}
 	]
 	subtitle: ["Tier11-UIV"]

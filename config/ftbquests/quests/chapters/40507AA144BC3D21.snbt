@@ -9,8 +9,8 @@
 	quest_links: [{
 		id: "14F40CE0FBA07270"
 		linked_quest: "00A227F06D7F109E"
-		x: -4.5d
-		y: -4.5d
+		x: -5.0d
+		y: -5.0d
 	}]
 	quests: [
 		{
@@ -19,16 +19,17 @@
 				"0BF48314F3323108"
 				"32186EFF7020D432"
 			]
+			icon_scale: 2.0d
 			id: "3E5EBC2B23A503C1"
-			shape: "gear"
-			size: 1.2d
+			shape: "rsquare"
+			size: 2.0d
 			tasks: [{
 				id: "75AE43EB6B5AC68F"
-				item: "gtceu:sphere_of_harmony"
+				item: "gtceu:eye_of_harmony"
 				type: "item"
 			}]
-			x: -6.0d
-			y: -1.5d
+			x: -9.0d
+			y: -3.0d
 		}
 		{
 			dependencies: ["3E5EBC2B23A503C1"]
@@ -39,21 +40,22 @@
 				title: "时空"
 				type: "checkmark"
 			}]
-			x: -4.5d
-			y: -1.5d
+			x: -5.0d
+			y: -3.0d
 		}
 		{
 			dependencies: [
 				"365548266DF60F91"
 				"77A53FAAC098F859"
 			]
+			icon_scale: 2.0d
 			id: "45C3486A3F0EE7FB"
 			tasks: [{
 				id: "5B7BBBB311822D83"
 				item: "kubejs:spacetime_catalyst"
 				type: "item"
 			}]
-			x: -4.5d
+			x: -3.0d
 			y: -3.0d
 		}
 		{
@@ -65,8 +67,8 @@
 				title: "恒星物质"
 				type: "checkmark"
 			}]
-			x: -6.0d
-			y: 0.0d
+			x: -7.0d
+			y: -7.0d
 		}
 		{
 			dependencies: [
@@ -80,22 +82,23 @@
 				item: "gtceu:transcendentmetal_ingot"
 				type: "item"
 			}]
-			x: -1.5d
-			y: -1.5d
+			x: -1.0d
+			y: -5.0d
 		}
 		{
 			dependencies: [
 				"2880531AF7540B24"
 				"5A61ABB6E4917C6C"
 			]
+			icon_scale: 2.0d
 			id: "11A7CCFCEAB722F3"
 			tasks: [{
 				id: "3DCC1C5866480D9F"
 				item: "kubejs:hypercube"
 				type: "item"
 			}]
-			x: -1.5d
-			y: -4.5d
+			x: 1.0d
+			y: -7.0d
 		}
 		{
 			dependencies: [
@@ -109,8 +112,8 @@
 				item: "kubejs:space_probe_mk3"
 				type: "item"
 			}]
-			x: -7.5d
-			y: -3.0d
+			x: -11.0d
+			y: -7.0d
 		}
 		{
 			dependencies: [
@@ -123,20 +126,24 @@
 				item: "kubejs:hyperdimensional_drone"
 				type: "item"
 			}]
-			x: 0.0d
-			y: -1.5d
+			x: 1.0d
+			y: -5.0d
 		}
 		{
-			dependencies: ["736395E39993F727"]
+			dependencies: [
+				"736395E39993F727"
+				"771080AF846271E3"
+			]
 			description: ["可大批量生产"]
+			icon_scale: 2.0d
 			id: "414F9C645C799FAE"
 			tasks: [{
 				id: "47061FC3050F2DB2"
 				item: "kubejs:suprachronal_max"
 				type: "item"
 			}]
-			x: 1.5d
-			y: -1.5d
+			x: 3.0d
+			y: -5.0d
 		}
 		{
 			dependencies: [
@@ -144,6 +151,7 @@
 				"2A29DA4239E6BA44"
 				"3FBFE193579C28E3"
 			]
+			icon_scale: 2.0d
 			id: "0A6C5B3C148A5743"
 			tasks: [{
 				id: "702BFEED1422D1D6"
@@ -151,7 +159,7 @@
 				type: "item"
 			}]
 			x: -3.0d
-			y: 0.0d
+			y: -7.0d
 		}
 		{
 			dependencies: [
@@ -165,42 +173,45 @@
 				type: "item"
 			}]
 			x: -3.0d
-			y: -3.0d
+			y: -5.0d
 		}
 		{
 			dependencies: [
 				"04420B8E0278D7AD"
 				"45C3486A3F0EE7FB"
 			]
+			icon_scale: 2.0d
 			id: "2AFCDC0CA3205903"
 			tasks: [{
 				id: "470C4F62160DE7DA"
 				item: "kubejs:eternity_catalyst"
 				type: "item"
 			}]
-			x: -1.5d
+			x: -1.0d
 			y: -3.0d
 		}
 		{
 			dependencies: ["00A227F06D7F109E"]
+			icon_scale: 2.0d
 			id: "622395061792FB5E"
 			tasks: [{
 				id: "049F132CCC5B262C"
 				item: "kubejs:infinity_coil_block"
 				type: "item"
 			}]
-			x: -3.0d
-			y: -4.5d
+			x: -4.0d
+			y: -5.0d
 		}
 		{
 			dependencies: ["30AEBB08CE6C88BA"]
+			icon_scale: 2.0d
 			id: "2C3C46AC660CC54E"
 			tasks: [{
 				id: "6FB785AF530B06F6"
 				item: "kubejs:suprachronal_mainframe_complex"
 				type: "item"
 			}]
-			x: 1.5d
+			x: 3.0d
 			y: -3.0d
 		}
 		{
@@ -212,26 +223,28 @@
 				title: "磁流体约束恒星物质"
 				type: "checkmark"
 			}]
-			x: 0.0d
-			y: -3.0d
+			x: 1.0d
+			y: -1.0d
 		}
 		{
 			dependencies: ["11A7CCFCEAB722F3"]
 			description: ["可以把你的最高级别激光仓填满"]
+			icon_scale: 2.0d
 			id: "0610CD9378D8B0AD"
 			shape: "gear"
-			size: 1.1d
+			size: 2.0d
 			tasks: [{
 				id: "50D76B27937DC429"
 				item: "gtceu:annihilate_generator"
 				type: "item"
 			}]
-			x: 0.0d
-			y: -4.5d
+			x: 3.0d
+			y: -7.0d
 		}
 		{
 			dependencies: ["63998161D9D731E7"]
 			hide_dependency_lines: false
+			icon_scale: 2.0d
 			id: "5A6EA61F3E61D086"
 			shape: "gear"
 			tasks: [{
@@ -239,8 +252,8 @@
 				item: "gtceu:max_neutron_compressor"
 				type: "item"
 			}]
-			x: -1.5d
-			y: 0.0d
+			x: -1.0d
+			y: -7.0d
 		}
 		{
 			dependencies: [
@@ -249,15 +262,16 @@
 				"51D5E14423F35E6F"
 			]
 			description: ["耗能固定为4A MAX"]
+			icon_scale: 2.0d
 			id: "296DE95F3BE7DC54"
-			shape: "gear"
-			size: 1.2d
+			shape: "rsquare"
+			size: 2.0d
 			tasks: [{
 				id: "68BE29A496275699"
 				item: "gtceu:door_of_create"
 				type: "item"
 			}]
-			x: 3.0d
+			x: 5.0d
 			y: -3.0d
 		}
 		{
@@ -269,8 +283,8 @@
 				item: "kubejs:dimension_creation_casing"
 				type: "item"
 			}]
-			x: 3.0d
-			y: -1.5d
+			x: 5.0d
+			y: -5.0d
 		}
 		{
 			dependencies: [
@@ -283,8 +297,8 @@
 				item: "kubejs:chaos_shard"
 				type: "item"
 			}]
-			x: -6.0d
-			y: -4.5d
+			x: -9.0d
+			y: -7.0d
 		}
 		{
 			dependencies: ["57B09C66B637C894"]
@@ -294,8 +308,8 @@
 				item: "gtceu:chaos_ingot"
 				type: "item"
 			}]
-			x: -6.0d
-			y: -3.0d
+			x: -9.0d
+			y: -5.0d
 		}
 		{
 			dependencies: ["77CADF4536151255"]
@@ -306,8 +320,8 @@
 				title: "宇宙素"
 				type: "checkmark"
 			}]
-			x: -7.5d
-			y: -1.5d
+			x: -11.0d
+			y: -5.0d
 		}
 		{
 			dependencies: [
@@ -321,8 +335,8 @@
 				title: "流体本源物质"
 				type: "checkmark"
 			}]
-			x: -3.0d
-			y: -1.5d
+			x: -7.0d
+			y: -5.0d
 		}
 		{
 			dependencies: ["165C5D3656C33A89"]
@@ -332,20 +346,21 @@
 				item: "gtceu:dimensionallytranscendentstellarcatalyst_bucket"
 				type: "item"
 			}]
-			x: -4.5d
-			y: 0.0d
+			x: -5.0d
+			y: -7.0d
 		}
 		{
 			dependencies: ["32186EFF7020D432"]
 			description: ["非常的贵"]
+			icon_scale: 2.0d
 			id: "67EF7F1C6AE2A6C9"
 			tasks: [{
 				id: "0E0235D9CF0EAA5F"
 				item: "kubejs:draconic_energy_core"
 				type: "item"
 			}]
-			x: 0.0d
-			y: 0.0d
+			x: 1.0d
+			y: -3.0d
 		}
 		{
 			dependencies: ["30AEBB08CE6C88BA"]
@@ -355,19 +370,8 @@
 				item: "gtceu:cosmic_ingot"
 				type: "item"
 			}]
-			x: 1.5d
-			y: -4.5d
-		}
-		{
-			dependencies: ["51D5E14423F35E6F"]
-			id: "157CE930096F5DCA"
-			tasks: [{
-				id: "344462E7CE13EB75"
-				item: "expatternprovider:fishbig"
-				type: "item"
-			}]
 			x: 3.0d
-			y: -4.5d
+			y: -1.0d
 		}
 	]
 	subtitle: ["Tier13-OpV"]

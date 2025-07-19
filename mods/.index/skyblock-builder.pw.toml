@@ -1,0 +1,16 @@
+filename = 'SkyblockBuilder-1.20.1-5.1.24.jar'
+name = 'Skyblock Builder'
+side = 'both'
+x-prismlauncher-loaders = [ 'neoforge', 'forge' ]
+x-prismlauncher-mc-versions = [ '1.20.1' ]
+x-prismlauncher-release-type = 'beta'
+
+[download]
+hash = 'edf5227685dd896b46290e6b8e76b2920e590ca9'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 5813827
+project-id = 446691

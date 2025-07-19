@@ -24,6 +24,11 @@
 			]
 			icon: "gtceu:lv_battery_buffer_4x"
 			id: "7F97BED1B9552E5E"
+			rewards: [{
+				id: "21A127B9A78F381C"
+				item: "gtceu:cupronickel_credit"
+				type: "item"
+			}]
 			tasks: [{
 				id: "7B797503EA800D59"
 				title: "基本设定"
@@ -52,6 +57,11 @@
 			]
 			icon: "gtceu:lv_transformer_1a"
 			id: "0CC922B821305906"
+			rewards: [{
+				id: "6AACFA4A99B6EF47"
+				item: "gtceu:cupronickel_credit"
+				type: "item"
+			}]
 			tasks: [{
 				id: "34D8E6B118290930"
 				title: "能量传输"
@@ -72,6 +82,11 @@
 			]
 			icon: "gtceu:tin_single_cable"
 			id: "4A7E19EF14D3C072"
+			rewards: [{
+				id: "0742E14D9F82B5DA"
+				item: "gtceu:cupronickel_credit"
+				type: "item"
+			}]
 			tasks: [{
 				id: "6C551BD24A83AB3F"
 				title: "线缆传输"
@@ -92,6 +107,11 @@
 			]
 			icon: "gtceu:lv_diode"
 			id: "4F7A3702787F86A7"
+			rewards: [{
+				id: "12DB6E7A8A385246"
+				item: "gtceu:cupronickel_credit"
+				type: "item"
+			}]
 			tasks: [{
 				id: "007D09C6CE7CB00B"
 				title: "电流"
@@ -114,6 +134,11 @@
 			]
 			icon: "minecraft:clock"
 			id: "5535934109A12B5D"
+			rewards: [{
+				id: "31ED6CE96AA0C0E8"
+				item: "gtceu:cupronickel_credit"
+				type: "item"
+			}]
 			tasks: [{
 				id: "4DB7B7FC0312D572"
 				title: "超频"
@@ -131,6 +156,11 @@
 			]
 			icon: "gtceu:active_transformer"
 			id: "010CF028448C17A9"
+			rewards: [{
+				id: "7C3F436CBD1BBB13"
+				item: "gtceu:cupronickel_credit"
+				type: "item"
+			}]
 			tasks: [{
 				id: "311562AB006A065E"
 				title: "变压"

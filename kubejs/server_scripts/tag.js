@@ -1,12 +1,32 @@
 //priority: 100
-const tiers = [["ulv", 0], ["lv", 1], ["mv", 2], ["hv", 3], ["ev", 4], ["iv", 5], ["luv", 6], ["zpm", 7], ["uv", 8], ["uhv", 9], ["uev", 10], ["uiv", 11], ["uxv", 12], ["opv", 13], ["max", 14]]
+const tiers = [["ulv", 0 , "gtceu"],
+               ["lv", 1 , "gtceu"], 
+               ["mv", 2 , "gtceu"], 
+               ["hv", 3 , "gtceu"], 
+               ["ev", 4 , "gtceu"], 
+               ["iv", 5 , "gtceu"],
+               ["luv", 6 , "gtceu"], 
+               ["zpm", 7 , "gtceu"], 
+               ["uv", 8 , "gtceu"], 
+               ["uhv", 9 , "gtceu"], 
+               ["uev", 10 , "gtceu"], 
+               ["uiv", 11 , "gtceu"], 
+               ["uxv", 12 , "gtceu"], 
+               ["opv", 13 , "gtceu"], 
+               ["max", 14 , "gtlcore"]]
 ServerEvents.tags("item", event => {
-    //ae2
     const items = [
         "ae2:certus_quartz_crystal",
         "ae2:certus_quartz_dust",
         "ae2:ender_dust",
-        "appflux:redstone_crystal"
+        "appflux:redstone_crystal",
+        "ad_astra:iron_plate",
+        "ad_astra:iron_rod",
+        "ad_astra:steel_ingot",
+        "ad_astra:steel_nugget",
+        "ad_astra:steel_plate",
+        "ad_astra:steel_rod",
+        "ad_astra:steel_block"
     ]
     items.forEach((item) => {
         event.removeAllTagsFrom(item)
@@ -75,10 +95,9 @@ ServerEvents.tags("item", event => {
             "kubejs:magnetohydrodynamicallyconstrainedstarmatter_boots"])
     })
 })
-ServerEvents.tags("block", event => {
-    const blocks = ["gtceu:fission_fuel_assembly", "gtceu:supercritical_turbine_casing", "gtceu:cooler", "gtceu:power_core", "gtceu:1m_storage", "gtceu:4m_storage", "gtceu:16m_storage", "gtceu:64m_storage", "gtceu:256m_storage", "gtceu:256g_storage", "gtceu:power_module", "gtceu:law_filter_casing", "gtceu:hyper_core", "gtceu:super_computation_component", "gtceu:super_cooler_component", "gtceu:spacetimecontinuumripper", "gtceu:spacetimebendingcore", "gtceu:qft_coil"]
-    blocks.forEach((block) => {
-        event.add("minecraft:mineable/pickaxe", block)
-        event.add("forge:mineable/wrench", block)
-    })
+
+ServerEvents.tags("fluid", event => {
+    event.remove("forge:oxygen", "ad_astra:oxygen")
+    event.remove("forge:hydrogen", "ad_astra:hydrogen")
+    event.remove("forge:oil", "ad_astra:oil")
 })

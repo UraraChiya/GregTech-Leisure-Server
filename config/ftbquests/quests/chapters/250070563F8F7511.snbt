@@ -18,6 +18,7 @@
 			description: ["在开始之前需要先浏览一遍旁边的任务。"]
 			hide_dependency_lines: true
 			icon: "minecraft:grass_block"
+			icon_scale: 2.0d
 			id: "075D368E91231337"
 			rewards: [{
 				id: "2CF9C7981E9F7DE5"
@@ -41,7 +42,6 @@
 				}
 				type: "item"
 			}]
-			shape: "rsquare"
 			size: 1.5d
 			tasks: [{
 				id: "20A638BEB859B6BC"
@@ -203,7 +203,7 @@
 				item: "minecraft:furnace"
 				type: "item"
 			}]
-			x: -2.5d
+			x: -3.2d
 			y: -1.0d
 		}
 		{
@@ -243,6 +243,7 @@
 			]
 			icon: "minecraft:obsidian"
 			id: "07AC1B02299EF734"
+			optional: true
 			rewards: [
 				{
 					id: "29C2D0C50033539C"
@@ -555,7 +556,7 @@
 				}
 			]
 			title: "锻铁"
-			x: 1.5d
+			x: 2.2d
 			y: -1.0d
 		}
 		{
@@ -577,7 +578,7 @@
 				item: "gtceu:terminal"
 				type: "item"
 			}]
-			x: 1.5d
+			x: 2.2d
 			y: 0.5d
 		}
 		{
@@ -588,6 +589,7 @@
 			]
 			icon: "kubejs:warped_ender_pearl"
 			id: "72AFAC66A9EC5F1A"
+			optional: true
 			rewards: [{
 				id: "16D977A5C13DD6A2"
 				item: "kubejs:warped_ender_pearl"
@@ -598,12 +600,12 @@
 				title: "传送器"
 				type: "checkmark"
 			}]
-			x: 1.5d
+			x: 2.2d
 			y: 2.0d
 		}
 		{
 			dependencies: ["2C6F506ADD78F277"]
-			description: ["去小市场兑换宝物，注意钻石是耐烧王，推荐给锅炉用"]
+			description: ["去小市场兑换宝物，注意钻石是非常耐烧，推荐给锅炉用"]
 			id: "2E6B876A85B30554"
 			rewards: [{
 				id: "4C4D7911A44B42C2"
@@ -1026,6 +1028,7 @@
 				"具体请到提示页面&b&l机器章节的多方块部分&r查看"
 			]
 			icon: "gtceu:coke_oven"
+			icon_scale: 2.0d
 			id: "12E605EC5CFDE71A"
 			rewards: [{
 				id: "11023544A8C72E30"
@@ -1054,6 +1057,7 @@
 			dependencies: ["4B6F43302E963F5E"]
 			description: ["有了青铜，你可以开始制作各种蒸汽驱动的机器了"]
 			icon: "gtceu:lp_steam_alloy_smelter"
+			icon_scale: 2.0d
 			id: "46F82A0A3D57C225"
 			rewards: [{
 				id: "07408B5DAB665BC8"
@@ -1072,7 +1076,10 @@
 		}
 		{
 			dependencies: ["12E605EC5CFDE71A"]
-			description: ["相当于一个没有GUI的焦炉主方块，可以使用管道或者漏斗交互"]
+			description: [
+				"相当于一个没有GUI的焦炉主方块，可以使用管道或者漏斗交互"
+				"不能共用给多个焦炉"
+			]
 			id: "4E01FAE893654321"
 			rewards: [{
 				id: "21D31A1CAA1B89AD"
@@ -1095,6 +1102,7 @@
 				"具体矿脉内容可到矿石生成章节查看。"
 				"连锁可以采集所有矿石。"
 			]
+			icon: "gtceu:raw_tin"
 			id: "050FD340224F7AB6"
 			rewards: [{
 				id: "373E50B37DA19C04"
@@ -1102,9 +1110,8 @@
 				type: "item"
 			}]
 			tasks: [{
-				id: "4AF61558B2A48848"
-				item: "gtceu:raw_tin"
-				type: "item"
+				id: "398CEBA3D72D1063"
+				type: "checkmark"
 			}]
 			title: "矿石生成"
 			x: -0.5d
@@ -1135,15 +1142,17 @@
 			y: -4.0d
 		}
 		{
+			can_repeat: true
 			dependencies: ["4B6F43302E963F5E"]
-			icon: "kubejs:infinite_cell_component"
+			icon: "gtlcore:infinite_cell_component"
 			id: "7198356C944E053A"
+			optional: true
 			rewards: [
 				{
 					id: "7480CA9E0C881C90"
 					item: {
 						Count: 1
-						id: "gtceu:super_portable_item_storage_cell"
+						id: "gtlcore:super_portable_item_storage_cell"
 						tag: {
 							internalCurrentPower: 2000000000
 						}
@@ -1154,7 +1163,7 @@
 					id: "7E40E854D6E1AE44"
 					item: {
 						Count: 1
-						id: "gtceu:super_portable_fluid_storage_cell"
+						id: "gtlcore:super_portable_fluid_storage_cell"
 						tag: {
 							internalCurrentPower: 2000000000
 						}
@@ -1184,7 +1193,7 @@
 		}
 		{
 			can_repeat: true
-			dependencies: ["050FD340224F7AB6"]
+			dependencies: ["2DC6C5D7DDA578F7"]
 			description: ["第一行就是最多连锁数量，设置时不建议太大"]
 			icon: {
 				Count: 1
@@ -1194,6 +1203,7 @@
 				}
 			}
 			id: "64D9F1266FDE5FFE"
+			optional: true
 			rewards: [{
 				command: "/ftbultimine serverconfig"
 				id: "73FADAC6A80B392D"
@@ -1204,7 +1214,7 @@
 				title: "更快的挖矿"
 				type: "checkmark"
 			}]
-			x: -0.5d
+			x: -1.8d
 			y: -1.0d
 		}
 		{
@@ -1227,6 +1237,184 @@
 			}]
 			x: -8.5d
 			y: -0.5d
+		}
+		{
+			dependencies: ["4B6F43302E963F5E"]
+			description: [
+				"✓上线"
+				"✓在机器上跳来跳去"
+				"✓在机器上跳来跳去"
+				"✓在机器上跳来跳去"
+				"   下线"
+			]
+			icon: "usclb:clipboard"
+			id: "0FA161E6D70D211E"
+			optional: true
+			rewards: [{
+				id: "4B16101838A6524C"
+				item: "usclb:clipboard"
+				type: "item"
+			}]
+			tasks: [{
+				id: "62B126388869ACC4"
+				type: "checkmark"
+			}]
+			title: "记笔记"
+			x: 8.5d
+			y: -4.0d
+		}
+		{
+			dependencies: ["2C6F506ADD78F277"]
+			description: [
+				"1 每t都在运作"
+				"2 一对多传输会超级卡"
+				"3 分配规则改成轮询调度会超级卡"
+				"4 大量过滤会超级卡"
+				"5 流体管道会很卡"
+			]
+			id: "206F4C123EC2550F"
+			optional: true
+			tasks: [{
+				id: "78133B00994EC9AC"
+				item: "pipez:wrench"
+				type: "item"
+			}]
+			x: 0.8d
+			y: -1.0d
+		}
+		{
+			dependencies: ["4AB25C15F0B05AA0"]
+			description: ["记得在有等级方块的时候修改线圈等级的数值"]
+			id: "1A124E85453923DF"
+			optional: true
+			tasks: [{
+				id: "10AA38DEE8B23298"
+				item: "gtmthings:advanced_terminal"
+				type: "item"
+			}]
+			x: 0.8d
+			y: 0.5d
+		}
+		{
+			description: [
+				"这是个坏消息，你来到了一个碎片世界中，"
+				"这个世界并不完整，世界变成了一个个碎片，"
+				"不过我为你留了些好东西，它们可以帮你继续你的旅程。"
+				"保存好它们，&l&d&o它们都是必要的!!!&r&r&r"
+				""
+				"必要的提示："
+				"这是什么！空岛模式！"
+				"如果你在世界创建的是时候选择了 &b空岛&r"
+				"这个任务才是可以完成的"
+				"你需要在游戏菜单界面， 单击开启mod，"
+				"搜索gtlcore，点击配置，"
+				"将 &b空岛模式&r 的配置由 &bfalse&r 改为 &btrue&r"
+				""
+				"（这样才是真的进入空岛模式了，如果你想试试常规模式请记得切换模式）"
+				"（在改变配置后请重启游戏，配置内容不支持热重载）"
+				"{image:ftbquests:textures/picture/002.png width:300 height:150 align:center}"
+			]
+			icon: "gtlcore:world_fragments_overworld"
+			id: "0F4AFDE98CEA87B1"
+			min_width: 350
+			optional: true
+			rewards: [{
+				id: "0AFB0CC841A156B2"
+				item: "gtlcore:world_fragments_overworld"
+				type: "item"
+			}]
+			tasks: [{
+				id: "61677438ACE10819"
+				item: "gtlcore:mining_crystal"
+				type: "item"
+			}]
+			title: "空岛模式"
+			x: -6.5d
+			y: -0.5d
+		}
+		{
+			dependencies: ["050FD340224F7AB6"]
+			description: [
+				"来自精妙的 背包 箱子 桶"
+				"前期非常好用"
+				""
+				"（后期推荐使用AE）"
+			]
+			id: "75E8F87D6035DB24"
+			optional: true
+			rewards: [{
+				id: "0AFB0CC841A156B1"
+				item: "sophisticatedbackpacks:stack_upgrade_tier_4"
+				type: "item"
+			}]
+			tasks: [
+				{
+					id: "5921757C1C1F6183"
+					item: "sophisticatedbackpacks:backpack"
+					type: "item"
+				}
+				{
+					id: "68A7941991B1E028"
+					item: {
+						Count: 1
+						id: "sophisticatedstorage:barrel"
+						tag: { }
+					}
+					type: "item"
+				}
+				{
+					id: "6E5C66425A74A989"
+					item: {
+						Count: 1
+						id: "sophisticatedstorage:chest"
+						tag: { }
+					}
+					type: "item"
+				}
+			]
+			title: "精妙系列"
+			x: -0.5d
+			y: -1.0d
+		}
+		{
+			dependencies: ["4B6F43302E963F5E"]
+			id: "4DFDDE01DF6D6763"
+			optional: true
+			tasks: [{
+				id: "0BC8CBF4882C8CC4"
+				item: {
+					Count: 1
+					id: "shrink:shrinking_device"
+					tag: { }
+				}
+				type: "item"
+			}]
+			x: 6.5d
+			y: -4.0d
+		}
+		{
+			dependencies: ["4B6F43302E963F5E"]
+			id: "4B7B7EA38B836F96"
+			optional: true
+			tasks: [{
+				id: "5686A229D312C6F2"
+				item: "buildinggadgets2:gadget_building"
+				type: "item"
+			}]
+			x: 7.5d
+			y: -4.0d
+		}
+		{
+			dependencies: ["4AB25C15F0B05AA0"]
+			id: "1D93602C5835593F"
+			size: 1.0d
+			tasks: [{
+				id: "7AB796D165A6C084"
+				item: "gtlcore:structure_detect"
+				type: "item"
+			}]
+			x: 0.8d
+			y: 2.0d
 		}
 	]
 	title: "由此开始"

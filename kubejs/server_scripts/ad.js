@@ -76,7 +76,7 @@ ServerEvents.recipes(event => {
         F: "gtceu:double_steel_plate"
     })
 
-    gtr.compressor("ad_astra:ice_shard")
+    gtr.lightning_processor("ad_astra:ice_shard")
         .itemInputs("minecraft:blue_ice")
         .itemOutputs("ad_astra:ice_shard")
         .EUt(30)
@@ -542,8 +542,8 @@ ServerEvents.recipes(event => {
         .itemOutputs("ad_astra_rocketed:tier_7_rocket")
         .EUt(122880)
         .duration(2400)
-        .stationResearch(b => b.researchStack(Item.of("ad_astra_rocketed:tier_6_rocket"))
-            .dataStack(Item.of("gtceu:data_orb"))
+        .stationResearch(b => b.researchStack(Registries.getItemStack("ad_astra_rocketed:tier_6_rocket"))
+            .dataStack(Registries.getItemStack("gtceu:data_orb"))
             .EUt(GTValues.VA[GTValues.ZPM])
             .CWUt(48))
 })

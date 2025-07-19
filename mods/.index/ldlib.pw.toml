@@ -1,0 +1,16 @@
+filename = 'ldlib-forge-1.20.1-1.0.28.d.jar'
+name = 'LDLib'
+side = 'both'
+x-prismlauncher-loaders = [ 'forge' ]
+x-prismlauncher-mc-versions = [ '1.20.1' ]
+x-prismlauncher-release-type = 'release'
+
+[download]
+hash = '609e54311341afeba56ca61f4ce3644a881e1b6f'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 5757749
+project-id = 626676

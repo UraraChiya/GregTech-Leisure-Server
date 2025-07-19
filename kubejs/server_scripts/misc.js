@@ -12,26 +12,6 @@ ServerEvents.recipes((event) => {
         D: "minecraft:ender_pearl"
     })
 
-    event.shaped("travelanchors:travel_staff", [
-        "  A",
-        " B ",
-        "B  "
-    ], {
-        A: "kubejs:warped_ender_pearl",
-        B: "gtceu:long_vanadium_steel_rod"
-    })
-
-    event.shaped("travelanchors:travel_anchor", [
-        "CAC",
-        "DBD",
-        "CAC"
-    ], {
-        A: "gtceu:double_iron_plate",
-        B: "kubejs:warped_ender_pearl",
-        C: "gtceu:wrought_iron_foil",
-        D: "gtceu:vanadium_steel_screw"
-    })
-
     event.shaped("kubejs:command_wand", [
         "  A",
         " B ",
@@ -95,6 +75,7 @@ ServerEvents.recipes((event) => {
     gtr.space_elevator("1")
         .circuit(1)
         .duration(400)
+        .CWUt(128)
         .EUt(GTValues.VA[GTValues.UV])
 
     gtr.door_of_create("1")
@@ -133,30 +114,11 @@ ServerEvents.recipes((event) => {
 })
 
 const $GTCapabilityHelper = Java.loadClass("com.gregtechceu.gtceu.api.capability.GTCapabilityHelper")
-const $DamageTypes = Java.loadClass("net.minecraft.world.damagesource.DamageTypes")
-const $MenuHooks = Java.loadClass("earth.terrarium.botarium.common.menu.MenuHooks")
-const $PlanetsMenuProvider = Java.loadClass("earth.terrarium.adastra.common.menus.base.PlanetsMenuProvider")
 const $WirelessEnergyManager = Java.loadClass("com.hepdd.gtmthings.api.misc.WirelessEnergyManager")
 const $BigInteger = Java.loadClass("java.math.BigInteger")
 const $RecipeHelper = Java.loadClass("com.gregtechceu.gtceu.api.recipe.RecipeHelper")
 const $FormattingUtil = Java.loadClass("com.gregtechceu.gtceu.utils.FormattingUtil")
 const $ClipContext = Java.loadClass("net.minecraft.world.level.ClipContext")
-
-BlockEvents.rightClicked("kubejs:antimatter_charge", event => {
-    if (event.player.getHeldItem("main_hand") == null && event.player.getHeldItem("off_hand") == null) {
-        event.block.set("minecraft:air")
-        event.getLevel().createExplosion(event.block.x, event.block.y, event.block.z).strength(100).explosionMode("tnt").explode()
-        let entities = event.getLevel().getEntitiesWithin(AABB.of(event.block.x - 100, event.block.y - 50, event.block.z - 100, event.block.x + 100, event.block.y + 50, event.block.z + 100))
-        for (let entity of entities) { if (entity.isLiving()) { entity.attack(1000000) } }
-    }
-})
-
-BlockEvents.rightClicked("gtceu:sphere_of_harmony", event => {
-    var machine = $GTCapabilityHelper.getRecipeLogic(event.level, event.block.pos, null).getMachine()
-    if (machine.self().isFormed()) {
-        machine.holder.self().getPersistentData().putString("sphere_of_harmony", event.player.uuid.toString())
-    }
-})
 
 BlockEvents.rightClicked("minecraft:crying_obsidian", event => {
     if (event.player.getHeldItem("main_hand") == null && event.player.getHeldItem("off_hand") == null) {
@@ -249,7 +211,7 @@ ItemEvents.rightClicked("kubejs:time_twister_wireless", event => {
         if (recipeLogic != null && recipeLogic.isWorking()) {
             let reducedDuration = (recipeLogic.getDuration() - recipeLogic.getProgress()) * 0.5
             let eu = 8 * reducedDuration * $RecipeHelper.getInputEUt(recipeLogic.getLastRecipe())
-            if (eu > 0 && $WirelessEnergyManager.addEUToGlobalEnergyMap(event.player.uuid, $BigInteger.valueOf(- eu))) {
+            if (eu > 0 && $WirelessEnergyManager.addEUToGlobalEnergyMap(event.player.uuid, $BigInteger.valueOf(- eu), recipeLogic.getMachine())) {
                 recipeLogic.setProgress(recipeLogic.getProgress() + reducedDuration)
                 event.player.setStatusMessage("消耗了 " + $FormattingUtil.formatNumbers(eu) + " EU，使机器运行时间减少了 " + reducedDuration + " tick")
             }
@@ -324,50 +286,6 @@ ItemEvents.rightClicked("kubejs:command_wand", event => {
     if (event.player.isSteppingCarefully() && block == "minecraft:repeating_command_block") {
         block.set("minecraft:air")
         event.getServer().runCommandSilent(`execute at ${name} run summon minecraft:item ${pos.x} ${block.y} ${pos.z} {PickupDelay:10,Motion:[0.0,0.2,0.0],Item:{id:"minecraft:repeating_command_block",Count:1b}}`)
-    }
-})
-
-ItemEvents.firstRightClicked("avaritia:infinity_sword", event => {
-    let name = event.player.getName().getString()
-    let targetX = 0, targetZ = 0, targetY = 0, xr = 0, yr = 0, index = 0
-    function pos(index, xr, yr) {
-        targetX = Math.round(event.player.x - (Math.sin(yr) * index * Math.abs(Math.cos(xr))))
-        targetZ = Math.round(event.player.z + (Math.cos(yr) * index * Math.abs(Math.cos(xr))))
-        targetY = Math.round(event.player.y - Math.sin(xr) * index) + 1
-    }
-    function rotation() {
-        let rotation = event.player.getRotationVector()
-        xr = rotation.x * (3.1415926535897932 / 180)
-        yr = rotation.y * (3.1415926535897932 / 180)
-    }
-
-    if (event.player.isSteppingCarefully()) {
-        rotation()
-        pos(4, xr, yr)
-        let posarray = [targetX, targetY, targetZ]
-        event.getServer().runCommandSilent(`execute at ${name} run tp @e[distance=..100,type=item] ${targetX} ${targetY} ${targetZ}`)
-        for (index = 3; index < 100; index++) {
-            pos(index, xr, yr)
-            let entities = event.getLevel().getEntitiesWithin(AABB.of(targetX - 1, targetY - 1, targetZ - 1, targetX + 1, targetY + 1, targetZ + 1))
-            for (let entity of entities) {
-                if (entity.isLiving()) {
-                    entity.teleportTo(posarray[0], posarray[1], posarray[2])
-                }
-            }
-        }
-    }
-    if (!event.player.isSteppingCarefully()) {
-        rotation()
-        for (index = 3; index < 100; index++) {
-            pos(index, xr, yr)
-            event.getServer().runCommandSilent(`execute at ${name} run particle minecraft:end_rod ${targetX} ${targetY} ${targetZ} 0.001 0.001 0.001 0.1 10 force`)
-            let entities = event.getLevel().getEntitiesWithin(AABB.of(targetX - 1, targetY - 1, targetZ - 1, targetX + 1, targetY + 1, targetZ + 1))
-            for (let entity of entities) {
-                if (entity.isLiving()) {
-                    entity.attack(event.player.damageSources().source($DamageTypes.MAGIC, event.player), 10000)
-                }
-            }
-        }
     }
 })
 
@@ -469,11 +387,6 @@ NetworkEvents.dataReceived("global.flyingspeedKey.consumeClick", (event) => {
     }
 })
 
-NetworkEvents.dataReceived("gt.se.st", event => {
-    event.player.addTag("spaceelevatorst")
-    $MenuHooks.openMenu(event.player, new $PlanetsMenuProvider())
-})
-
 NetworkEvents.dataReceived("global.nightvisionKey.consumeClick", event => {
     if (event.player.getArmorSlots().toString() == "[1 fermium_boots, 1 fermium_leggings, 1 fermium_chestplate, 1 fermium_helmet]" || event.player.getArmorSlots().toString() == "[1 magnetohydrodynamicallyconstrainedstarmatter_boots, 1 magnetohydrodynamicallyconstrainedstarmatter_leggings, 1 magnetohydrodynamicallyconstrainedstarmatter_chestplate, 1 magnetohydrodynamicallyconstrainedstarmatter_helmet]" || event.player.getArmorSlots().toString() == "[1 space_fermium_boots, 1 space_fermium_leggings, 1 space_fermium_chestplate, 1 space_fermium_helmet]") {
         if (event.player.persistentData.getBoolean("nv")) {
@@ -555,18 +468,6 @@ PlayerEvents.loggedIn(event => {
     }
 })
 
-BlockEvents.broken("gtceu:active_transformer", event => {
-    if ($GTCapabilityHelper.getRecipeLogic(event.level, event.block.pos, null).getMachine().self().isFormed()) {
-        let pos = event.block.pos
-        let coordinates = [pos.offset(1, 0, 0), pos.offset(-1, 0, 0), pos.offset(0, 0, -1), pos.offset(0, 0, 1), pos.offset(0, 1, 0), pos.offset(0, -1, 0)]
-        for (let i in coordinates) {
-            if (event.level.getBlock(coordinates[i]) == "gtceu:superconducting_coil") {
-                event.getLevel().createExplosion(coordinates[i].x, coordinates[i].y, coordinates[i].z).strength(20).explosionMode("tnt").explode()
-            }
-        }
-    }
-})
-
 EntityEvents.spawned("minecraft:bat", event => {
     event.cancel()
 })
@@ -576,6 +477,13 @@ ServerEvents.entityLootTables(event => {
         l.addPool(p => {
             p.addItem("kubejs:glacio_spirit").weight(1)
             p.addItem("ad_astra:ice_shard").weight(9)
+        })
+    })
+    event.addEntity("minecraft:villager", l => {
+        l.addPool(p => {
+            p.addItem("minecraft:end_crystal").weight(1).killedByPlayer()
+            p.addItem("gtceu:ulv_primitive_magic_energy").weight(2).killedByPlayer()
+            p.addItem("usclb:inkandquill").weight(3)
         })
     })
 })

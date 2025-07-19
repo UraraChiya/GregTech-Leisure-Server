@@ -17,6 +17,11 @@
 			]
 			icon: "gtceu:primitive_blast_furnace"
 			id: "089598D2954FFEE1"
+			rewards: [{
+				id: "36CD5C643C041455"
+				item: "gtceu:cupronickel_credit"
+				type: "item"
+			}]
 			tasks: [{
 				id: "0E513D8C801559EC"
 				title: "多方块结构成型"
@@ -32,10 +37,16 @@
 				"检查配方可能有的特殊要求"
 				"确保正确地将物品输入到总线/仓中。"
 				"确保有输出的空间。"
+				"消声仓必须对着空气方块。"
 				"也许多方块结构已经形成，但你忘记了一个仓。"
 			]
 			icon: "gtceu:maintenance_hatch"
 			id: "498CB29FA7447C46"
+			rewards: [{
+				id: "6F0F202CEF4CCFD7"
+				item: "gtceu:cupronickel_credit"
+				type: "item"
+			}]
 			tasks: [{
 				id: "44CA2F43F475CFD9"
 				title: "不工作的原因"
@@ -51,6 +62,11 @@
 			]
 			icon: "kubejs:uruium_coil_block"
 			id: "2205C5F410B9C4DB"
+			rewards: [{
+				id: "67F6BBF7159FD130"
+				item: "gtceu:cupronickel_credit"
+				type: "item"
+			}]
 			tasks: [{
 				id: "50F636D9BF4F6025"
 				title: "线圈"
@@ -68,6 +84,11 @@
 			]
 			icon: "gtceu:lv_energy_input_hatch"
 			id: "0BADECF30AC0BAC4"
+			rewards: [{
+				id: "74229AAB3C2222DD"
+				item: "gtceu:cupronickel_credit"
+				type: "item"
+			}]
 			tasks: [{
 				id: "23E71635D04A5A77"
 				title: "供电"
@@ -83,6 +104,11 @@
 			]
 			icon: "gtceu:lv_input_bus"
 			id: "5DB8BE71B3733C36"
+			rewards: [{
+				id: "7B4ECA8505F078B1"
+				item: "gtceu:cupronickel_credit"
+				type: "item"
+			}]
 			tasks: [{
 				id: "35761A42191E549C"
 				title: "总线/仓"
@@ -92,9 +118,17 @@
 			y: -2.5d
 		}
 		{
-			description: ["将16台LV机器同时运行，功率与一台HV机器相等，但是速度是一台HV机器的四倍。这是因为16台LV机器没有发生有损超频带来的损失。导致它以更低的速度做得更快。多方块结构的并行便是这么一种类似的概念。简单来说，并行就是一种另类的无损超频。"]
+			description: [
+				"将16台LV机器同时运行，功率与一台HV机器相等，但是速度是一台HV机器的四倍。这是因为16台LV机器没有发生有损超频带来的损失。导致它以更低的速度做得更快。多方块结构的并行便是这么一种类似的概念。简单来说，并行就是一种另类的无损超频。"
+				"警告：当你再使用并行仓时，机器工作的电压会根据并行数先行下降。"
+			]
 			icon: "gtceu:iv_parallel_hatch"
 			id: "6F503441C24ABD5B"
+			rewards: [{
+				id: "749E6E378FFF375B"
+				item: "gtceu:cupronickel_credit"
+				type: "item"
+			}]
 			tasks: [{
 				id: "6B1CC517916931AB"
 				title: "并行"
@@ -117,6 +151,11 @@
 			]
 			icon: "minecraft:hopper"
 			id: "2B1992E2158E63A2"
+			rewards: [{
+				id: "0908FF95BE82979B"
+				item: "gtceu:cupronickel_credit"
+				type: "item"
+			}]
 			tasks: [{
 				id: "3A68620AD827B0E5"
 				title: "机器的物流"

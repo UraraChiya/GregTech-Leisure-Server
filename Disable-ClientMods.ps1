@@ -12,7 +12,7 @@ function Disable-ClientMods {
         param (
             [string]$ModName, [string]$ClientModName
         )
-        return $ModName.Contains($ClientModName)
+        return $ModName.StartsWith($ClientModName)
     }
     $Mods = Get-ChildItem -Path $ModsDirectoryPath -Filter '*.jar'
     foreach ($Mod in $Mods) {

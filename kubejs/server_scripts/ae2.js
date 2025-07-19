@@ -3,6 +3,7 @@ ServerEvents.recipes((event) => {
     const gtr = event.recipes.gtceu
 
     event.remove({ id: "ae2:misc/deconstruction_certus_quartz_block" })
+    event.remove({ id: "ae2:misc/fluixpearl" })
     event.remove({ id: "ae2:network/blocks/controller" })
     event.remove({ id: "ae2:network/crafting/patterns_blank" })
     event.remove({ id: "ae2:network/parts/export_bus" })
@@ -13,9 +14,11 @@ ServerEvents.recipes((event) => {
     event.remove({ id: "ae2:materials/advancedcard" })
     event.remove({ id: "ae2:materials/basiccard" })
     event.remove({ id: "ae2:network/crafting/cpu_crafting_unit" })
-    event.replaceInput({ id: "expatternprovider:fishbig" }, "minecraft:pufferfish", "gtceu:cosmic_ingot")
-    event.shapeless("infinitycells:infinity_cell", ["ae2:item_cell_housing", "kubejs:infinite_cell_component"])
-    event.shapeless("infinitycells:infinity_fluid_cell", ["ae2:fluid_cell_housing", "kubejs:infinite_cell_component"])
+    event.remove({ id: "expatternprovider:fishbig" })
+    event.remove({ id: "expatternprovider:silicon_block" })
+    event.shapeless("gtlcore:item_infinity_cell", ["ae2:item_cell_housing", "gtlcore:infinite_cell_component"])
+    event.shapeless("gtlcore:fluid_infinity_cell", ["ae2:fluid_cell_housing", "gtlcore:infinite_cell_component"])
+    event.shapeless("gtlcore:pattern_modifier", "expatternprovider:pattern_modifier")
 
     event.shaped("ae2:creative_energy_cell", [
         "AAA",
@@ -263,14 +266,14 @@ ServerEvents.recipes((event) => {
         .duration(400)
 
     function getCellComponent(index) {
-        return index > 4 ? `gtceu:cell_component_${4 ** (index - 5)}m` : `ae2:cell_component_${4 ** index}k`
+        return index > 4 ? `gtlcore:cell_component_${4 ** (index - 5)}m` : `ae2:cell_component_${4 ** index}k`
     }
 
     for (let index = 0; index < 5; index++) {
-        event.shapeless(`gtceu:${4 ** index}m_storage`, ["ae2:crafting_unit", getCellComponent(index + 5)])
-        event.shapeless(`gtceu:item_storage_cell_${4 ** index}m`, ["ae2:item_cell_housing", getCellComponent(index + 5)])
-        event.shapeless(`gtceu:fluid_storage_cell_${4 ** index}m`, ["ae2:fluid_cell_housing", getCellComponent(index + 5)])
-        event.shaped(`gtceu:item_storage_cell_${4 ** index}m`, [
+        event.shapeless(`gtlcore:${4 ** index}m_storage`, ["ae2:crafting_unit", getCellComponent(index + 5)])
+        event.shapeless(`gtlcore:item_storage_cell_${4 ** index}m`, ["ae2:item_cell_housing", getCellComponent(index + 5)])
+        event.shapeless(`gtlcore:fluid_storage_cell_${4 ** index}m`, ["ae2:fluid_cell_housing", getCellComponent(index + 5)])
+        event.shaped(`gtlcore:item_storage_cell_${4 ** index}m`, [
             "ABA",
             "BDB",
             "CCC"
@@ -280,7 +283,7 @@ ServerEvents.recipes((event) => {
             C: "minecraft:iron_ingot",
             D: getCellComponent(index + 5)
         })
-        event.shaped(`gtceu:fluid_storage_cell_${4 ** index}m`, [
+        event.shaped(`gtlcore:fluid_storage_cell_${4 ** index}m`, [
             "ABA",
             "BDB",
             "CCC"
@@ -301,30 +304,21 @@ ServerEvents.recipes((event) => {
             .duration(200)
     }
 
-    gtr.assembly_line("gtceu:256g_storage")
-        .itemInputs("ae2:crafting_unit", "16x gtceu:cell_component_256m", "gtceu:data_bank", "16x gtceu:data_orb", "4x #gtceu:circuits/uhv", "4x gtceu:double_red_steel_plate")
+    gtr.assembly_line("gtlcore:max_storage")
+        .itemInputs("ae2:crafting_unit", "16x gtlcore:cell_component_256m", "gtceu:data_bank", "16x gtceu:data_orb", "4x #gtceu:circuits/uhv", "4x gtceu:double_red_steel_plate")
         .inputFluids("gtceu:soldering_alloy 576", "gtceu:pcb_coolant 2000")
-        .itemOutputs("gtceu:256g_storage")
+        .itemOutputs("gtlcore:max_storage")
         .EUt(GTValues.VA[GTValues.UV])
         .duration(400)
-    ["scannerResearch(java.util.function.UnaryOperator)"](b => b.researchStack(Item.of("gtceu:256m_storage")).dataStack(Item.of("gtceu:data_stick")).EUt(GTValues.VA[GTValues.LuV]).duration(1200))
+    ["scannerResearch(java.util.function.UnaryOperator)"](b => b.researchStack(Registries.getItemStack("gtlcore:256m_storage")).dataStack(Registries.getItemStack("gtceu:data_stick")).EUt(GTValues.VA[GTValues.LuV]).duration(1200))
 
-    gtr.assembly_line("kubejs:infinite_cell_component")
-        .itemInputs("16x gtceu:256g_storage", "gtceu:data_bank", "16x gtceu:data_module", "64x ae2:creative_energy_cell", "64x #gtceu:circuits/uev", "64x gtceu:ruthenium_trinium_americium_neutronate_hex_wire", "4x gtceu:double_neutronium_plate")
-        .inputFluids("gtceu:mutated_living_solder 20000", "gtceu:pcb_coolant 100000")
-        .itemOutputs("kubejs:infinite_cell_component")
+    gtr.assembly_line("gtlcore:infinite_cell_component")
+        .itemInputs("16x gtlcore:max_storage", "gtceu:data_bank", "16x gtceu:data_module", "64x ae2:creative_energy_cell", "64x #gtceu:circuits/uev", "64x gtceu:ruthenium_trinium_americium_neutronate_hex_wire", "4x gtceu:double_neutronium_plate")
+        .inputFluids("gtceu:mutated_living_solder 20000", "gtceu:tairitsu 20000", "gtceu:pcb_coolant 100000")
+        .itemOutputs("gtlcore:infinite_cell_component")
         .EUt(GTValues.VA[GTValues.UHV])
         .duration(2400)
-    ["scannerResearch(java.util.function.UnaryOperator)"](b => b.researchStack(Item.of("gtceu:cell_component_256m")).dataStack(Item.of("gtceu:data_orb")).EUt(GTValues.VA[GTValues.UV]).duration(2400))
-
-    for (let index = 1; index < 5; index++) {
-        gtr.assembler(`mae2:${4 ** index}x_crafting_accelerator`)
-            .itemInputs(index == 1 ? "ae2:crafting_accelerator" : `mae2:${4 ** (index - 1)}x_crafting_accelerator`, (2 ** index) + "x ae2:engineering_processor", getCellComponent(index))
-            .inputFluids("gtceu:soldering_alloy " + 72 * (2 ** index))
-            .itemOutputs(`mae2:${4 ** index}x_crafting_accelerator`)
-            .EUt(GTValues.VA[index - 1])
-            .duration(200)
-    }
+    ["scannerResearch(java.util.function.UnaryOperator)"](b => b.researchStack(Registries.getItemStack("gtlcore:cell_component_256m")).dataStack(Registries.getItemStack("gtceu:data_orb")).EUt(GTValues.VA[GTValues.UV]).duration(2400))
 
     for (let index = 0; index < 33; index++) {
         event.shaped(Item.of("expatternprovider:infinity_cell", `{record:{"#c":"ae2:i",id:"gtceu:programmed_circuit",tag:{Configuration:${index}}}}`), [
@@ -338,4 +332,111 @@ ServerEvents.recipes((event) => {
             D: "ae2:cell_component_16k"
         })
     }
+
+    gtr.forming_press("kubejs:fishbig_fabric")
+        .itemInputs("64x gtceu:magnetohydrodynamicallyconstrainedstarmatter_foil", "64x gtceu:shirabon_foil", "64x kubejs:two_way_foil", "64x gtceu:cosmic_foil", "64x gtceu:cosmicneutronium_foil", "64x gtceu:eternity_foil")
+        .itemOutputs("kubejs:fishbig_fabric")
+        .duration(200)
+        .EUt(GTValues.VA[GTValues.MAX] * 65536)
+        .cleanroom(GTLCleanroomType.LAW_CLEANROOM)
+
+    gtr.assembler("kubejs:fishbig_frame")
+        .circuit(6)
+        .itemInputs("64x gtceu:cosmic_plate", "64x gtceu:eternity_nanoswarm", "64x gtceu:long_cosmic_rod", "64x gtceu:infinity_frame", "64x gtceu:long_transcendentmetal_rod",
+            "64x gtceu:long_cosmicneutronium_rod", "64x gtceu:magnetohydrodynamicallyconstrainedstarmatter_frame", "64x gtceu:long_magmatter_rod",)
+        .inputFluids("gtceu:shirabon 18432")
+        .itemOutputs("kubejs:fishbig_frame")
+        .duration(200)
+        .EUt(GTValues.VA[GTValues.MAX] * 65536)
+        .cleanroom(GTLCleanroomType.LAW_CLEANROOM)
+
+    gtr.assembler("kubejs:fishbig_body")
+        .itemInputs("64x kubejs:fishbig_fabric", "64x kubejs:fishbig_frame", "64x kubejs:fishbig_fabric",
+            "64x kubejs:fishbig_fabric", "64x gtceu:create_aggregation", "64x kubejs:fishbig_fabric",
+            "64x kubejs:fishbig_fabric", "64x kubejs:fishbig_frame", "64x kubejs:fishbig_fabric")
+        .inputFluids("gtceu:eternity 18432")
+        .itemOutputs("kubejs:fishbig_body")
+        .duration(200)
+        .EUt(GTValues.VA[GTValues.MAX] * 65536)
+        .cleanroom(GTLCleanroomType.LAW_CLEANROOM)
+
+    gtr.assembler("kubejs:fishbig_hade")
+        .itemInputs("64x gtceu:double_cosmic_plate", "64x gtceu:double_cosmic_plate", "64x gtceu:double_cosmic_plate",
+            "64x gtlcore:max_sensor", "64x gtceu:create_computation", "64x gtlcore:max_sensor",
+            "64x gtceu:double_cosmic_plate", "64x kubejs:fishbig_frame", "64x gtceu:double_cosmic_plate")
+        .inputFluids("gtceu:transcendentmetal 18432")
+        .itemOutputs("kubejs:fishbig_hade")
+        .duration(200)
+        .EUt(GTValues.VA[GTValues.MAX] * 65536)
+        .cleanroom(GTLCleanroomType.LAW_CLEANROOM)
+
+    gtr.assembler("kubejs:fishbig_hair")
+        .itemInputs("64x kubejs:fishbig_fabric", "64x kubejs:fishbig_fabric", "64x kubejs:fishbig_fabric",
+            "64x kubejs:fishbig_fabric", "64x kubejs:fishbig_frame", "64x kubejs:fishbig_fabric",
+            "64x kubejs:fishbig_fabric", "64x gtlcore:infinity_glass", "64x kubejs:fishbig_fabric")
+        .inputFluids("gtceu:eternity 18432")
+        .itemOutputs("kubejs:fishbig_hair")
+        .duration(200)
+        .EUt(GTValues.VA[GTValues.MAX] * 65536)
+        .cleanroom(GTLCleanroomType.LAW_CLEANROOM)
+
+    gtr.assembler("kubejs:fishbig_rleg")
+        .itemInputs("64x kubejs:fishbig_frame", "64x kubejs:fishbig_fabric", "64x kubejs:fishbig_fabric",
+            "64x kubejs:fishbig_fabric", "64x gtceu:max_buffer", "64x kubejs:fishbig_fabric",
+            "64x kubejs:fishbig_fabric", "4x gtmthings:creative_laser_hatch", "64x kubejs:fishbig_fabric")
+        .inputFluids("gtceu:eternity 18432")
+        .itemOutputs("kubejs:fishbig_rleg")
+        .duration(200)
+        .EUt(GTValues.VA[GTValues.MAX] * 65536)
+        .cleanroom(GTLCleanroomType.LAW_CLEANROOM)
+
+    gtr.assembler("kubejs:fishbig_lleg")
+        .itemInputs("64x kubejs:fishbig_fabric", "64x kubejs:fishbig_fabric", "64x kubejs:fishbig_frame",
+            "64x kubejs:fishbig_fabric", "64x gtceu:max_buffer", "64x kubejs:fishbig_fabric",
+            "64x kubejs:fishbig_fabric", "4x gtceu:creative_data_access_hatch", "64x kubejs:fishbig_fabric")
+        .inputFluids("gtceu:eternity 18432")
+        .itemOutputs("kubejs:fishbig_lleg")
+        .duration(200)
+        .EUt(GTValues.VA[GTValues.MAX] * 65536)
+        .cleanroom(GTLCleanroomType.LAW_CLEANROOM)
+
+    gtr.assembler("kubejs:fishbig_rhand")
+        .itemInputs("64x kubejs:fishbig_frame", "64x kubejs:fishbig_fabric", "64x kubejs:fishbig_fabric",
+            "64x kubejs:fishbig_fabric", "64x gtlcore:component_assembly_line_casing_max", "64x kubejs:fishbig_fabric",
+            "64x kubejs:fishbig_fabric", "4x gtmthings:creative_laser_hatch", "64x kubejs:fishbig_fabric")
+        .inputFluids("gtceu:eternity 18432")
+        .itemOutputs("kubejs:fishbig_rhand")
+        .duration(200)
+        .EUt(GTValues.VA[GTValues.MAX] * 65536)
+        .cleanroom(GTLCleanroomType.LAW_CLEANROOM)
+
+    gtr.assembler("kubejs:fishbig_lhand")
+        .itemInputs("64x kubejs:fishbig_fabric", "64x kubejs:fishbig_fabric", "64x kubejs:fishbig_frame",
+            "64x kubejs:fishbig_fabric", "64x gtlcore:component_assembly_line_casing_max", "64x kubejs:fishbig_fabric",
+            "64x kubejs:fishbig_fabric", "4x gtceu:creative_data_access_hatch", "64x kubejs:fishbig_fabric")
+        .inputFluids("gtceu:eternity 18432")
+        .itemOutputs("kubejs:fishbig_lhand")
+        .duration(200)
+        .EUt(GTValues.VA[GTValues.MAX] * 65536)
+        .cleanroom(GTLCleanroomType.LAW_CLEANROOM)
+
+    gtr.lightning_processor("ae2:charged_certus_quartz_crystal")
+        .itemInputs("gtceu:certus_quartz_gem")
+        .itemOutputs("ae2:charged_certus_quartz_crystal")
+        .circuit(1)
+        .EUt(30)
+        .duration(60)
+
+    gtr.lightning_processor("ae2:fluix_crystal")
+        .itemInputs("minecraft:redstone", "minecraft:quartz", "gtceu:certus_quartz_gem")
+        .inputFluids("minecraft:water 1000")
+        .itemOutputs("2x ae2:fluix_crystal")
+        .EUt(30)
+        .duration(80)
+
+    gtr.lightning_processor("ae2:fluix_pearl")
+        .itemInputs("minecraft:ender_pearl", "8x ae2:fluix_crystal")
+        .itemOutputs("ae2:fluix_pearl")
+        .EUt(30)
+        .duration(160)
 })

@@ -33,7 +33,7 @@ GTCEuServerEvents.oreVeins(event => {
     })
     event.add("kubejs:sulfur_vein_aw", vein => {
         vein.weight(100)
-        vein.clusterSize(30)
+        vein.clusterSize(50)
         vein.density(0.2)
         vein.discardChanceOnAirExposure(0)
         vein.layer("all_layer")
@@ -49,7 +49,7 @@ GTCEuServerEvents.oreVeins(event => {
     })
     event.add("kubejs:stibnite_vein_aw", vein => {
         vein.weight(70)
-        vein.clusterSize(30)
+        vein.clusterSize(40)
         vein.density(0.25)
         vein.discardChanceOnAirExposure(0)
         vein.layer("all_layer")
@@ -64,7 +64,7 @@ GTCEuServerEvents.oreVeins(event => {
     })
     event.add("kubejs:topaz_vein_aw", vein => {
         vein.weight(70)
-        vein.clusterSize(30)
+        vein.clusterSize(40)
         vein.density(0.25)
         vein.discardChanceOnAirExposure(0)
         vein.layer("all_layer")
@@ -79,7 +79,7 @@ GTCEuServerEvents.oreVeins(event => {
     })
     event.add("kubejs:certus_quartz_vein_aw", vein => {
         vein.weight(40)
-        vein.clusterSize(30)
+        vein.clusterSize(40)
         vein.density(0.25)
         vein.discardChanceOnAirExposure(0)
         vein.layer("all_layer")
@@ -87,8 +87,8 @@ GTCEuServerEvents.oreVeins(event => {
         vein.heightRangeUniform(10, 60)
         vein.layeredVeinGenerator(generator => generator
             .buildLayerPattern(pattern => pattern
-                .layer(l => l.weight(1).mat(GTMaterials.Quartzite).size(2, 4))
-                .layer(l => l.weight(1).mat(GTMaterials.CertusQuartz).size(1, 4))
+                .layer(l => l.weight(3).mat(GTMaterials.Quartzite).size(2, 4))
+                .layer(l => l.weight(2).mat(GTMaterials.CertusQuartz).size(1, 4))
                 .layer(l => l.weight(1).mat(GTMaterials.Barite).size(1, 1))
             )
         )
@@ -103,22 +103,22 @@ GTCEuServerEvents.oreVeins(event => {
         vein.heightRangeUniform(-20, 20)
         vein.layeredVeinGenerator(generator => generator
             .buildLayerPattern(pattern => pattern
-                .layer(l => l.weight(1).mat(GTMaterials.Beryllium).size(3, 4))
-                .layer(l => l.weight(1).mat(GTMaterials.Emerald).size(2, 4))
+                .layer(l => l.weight(3).mat(GTMaterials.Beryllium).size(3, 4))
+                .layer(l => l.weight(4).mat(GTMaterials.Emerald).size(2, 4))
             )
         )
     })
     event.add("kubejs:molybdenum_vein_aw", vein => {
         vein.weight(10)
-        vein.clusterSize(30)
-        vein.density(0.75)
+        vein.clusterSize(10)
+        vein.density(0.5)
         vein.discardChanceOnAirExposure(0)
         vein.layer("all_layer")
         vein.dimensions("kubejs:ancient_world", "kubejs:ceres", "ad_astra:glacio")
         vein.heightRangeUniform(20, 50)
         vein.layeredVeinGenerator(generator => generator
             .buildLayerPattern(pattern => pattern
-                .layer(l => l.weight(2).mat(GTMaterials.Wulfenite).size(2, 4))
+                .layer(l => l.weight(3).mat(GTMaterials.Wulfenite).size(2, 4))
                 .layer(l => l.weight(2).mat(GTMaterials.Molybdenite).size(1, 1))
                 .layer(l => l.weight(1).mat(GTMaterials.Molybdenum).size(1, 1))
                 .layer(l => l.weight(1).mat(GTMaterials.Powellite).size(1, 1))
@@ -135,7 +135,7 @@ GTCEuServerEvents.oreVeins(event => {
         vein.heightRangeUniform(5, 45)
         vein.layeredVeinGenerator(generator => generator
             .buildLayerPattern(pattern => pattern
-                .layer(l => l.weight(1).mat(GTMaterials.Saltpeter).size(2, 4))
+                .layer(l => l.weight(2).mat(GTMaterials.Saltpeter).size(2, 4))
                 .layer(l => l.weight(2).mat(GTMaterials.Diatomite).size(1, 1))
                 .layer(l => l.weight(1).mat(GTMaterials.Electrotine).size(1, 1))
                 .layer(l => l.weight(1).mat(GTMaterials.Alunite).size(1, 1))
@@ -153,8 +153,8 @@ GTCEuServerEvents.oreVeins(event => {
         vein.heightRangeUniform(10, 70)
         vein.layeredVeinGenerator(generator => generator
             .buildLayerPattern(pattern => pattern
-                .layer(l => l.weight(1).mat(GTMaterials.Bauxite).size(2, 4))
-                .layer(l => l.weight(4).mat(GTMaterials.Ilmenite).size(1, 2))
+                .layer(l => l.weight(2).mat(GTMaterials.Bauxite).size(2, 4))
+                .layer(l => l.weight(2).mat(GTMaterials.Ilmenite).size(1, 2))
                 .layer(l => l.weight(1).mat(GTMaterials.Aluminium).size(1, 1))
             )
         )
@@ -169,8 +169,8 @@ GTCEuServerEvents.oreVeins(event => {
         vein.heightRangeUniform(20, 40)
         vein.layeredVeinGenerator(generator => generator
             .buildLayerPattern(pattern => pattern
-                .layer(l => l.weight(1).mat(GTMaterials.Bastnasite).size(2, 4))
-                .layer(l => l.weight(3).mat(GTMaterials.Monazite).size(1, 1))
+                .layer(l => l.weight(3).mat(GTMaterials.Bastnasite).size(2, 4))
+                .layer(l => l.weight(1).mat(GTMaterials.Monazite).size(1, 1))
                 .layer(l => l.weight(1).mat(GTMaterials.Neodymium).size(1, 1))
             )
         )
@@ -235,7 +235,7 @@ GTCEuServerEvents.oreVeins(event => {
             .buildLayerPattern(pattern => pattern
                 .layer(l => l.weight(3).mat(GTMaterials.Bornite).size(2, 4))
                 .layer(l => l.weight(2).mat(GTMaterials.Cooperite).size(1, 1))
-                .layer(l => l.weight(1).mat(GTMaterials.Platinum).size(1, 1))
+                .layer(l => l.weight(2).mat(GTMaterials.Platinum).size(1, 1))
                 .layer(l => l.weight(1).mat(GTMaterials.Palladium).size(1, 1))
             )
         )
@@ -377,7 +377,7 @@ GTCEuServerEvents.oreVeins(event => {
         vein.heightRangeUniform(0, 20)
         vein.layeredVeinGenerator(generator => generator
             .buildLayerPattern(pattern => pattern
-                .layer(l => l.weight(1).mat(GTMaterials.get("zircon")).size(1, 4))
+                .layer(l => l.weight(2).mat(GTMaterials.get("zircon")).size(1, 4))
                 .layer(l => l.weight(1).mat(GTMaterials.Grossular).size(2, 4))
                 .layer(l => l.weight(1).mat(GTMaterials.Pyrolusite).size(2, 4))
                 .layer(l => l.weight(1).mat(GTMaterials.Tantalite).size(1, 2))
@@ -386,7 +386,7 @@ GTCEuServerEvents.oreVeins(event => {
     })
     event.add("kubejs:celestine_vein_ad", vein => {
         vein.weight(40)
-        vein.clusterSize(40)
+        vein.clusterSize(80)
         vein.density(0.25)
         vein.discardChanceOnAirExposure(0)
         vein.layer("all_layer")

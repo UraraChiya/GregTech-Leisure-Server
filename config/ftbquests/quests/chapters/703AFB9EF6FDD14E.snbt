@@ -1,0 +1,372 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "703AFB9EF6FDD14E"
+	group: "24F4987B35ABEE82"
+	hide_quest_until_deps_visible: true
+	icon: "gtlcore:miracle_crystal"
+	id: "703AFB9EF6FDD14E"
+	order_index: 7
+	quest_links: [
+		{
+			id: "792A4930F282D16A"
+			linked_quest: "0F4AFDE98CEA87B1"
+			x: 0.0d
+			y: 1.5d
+		}
+		{
+			id: "1E73708F2121AB85"
+			linked_quest: "1416EAE88C9030C8"
+			x: 7.5d
+			y: 4.0d
+		}
+		{
+			id: "4A18F19FB88243D8"
+			linked_quest: "51A6B6CDC90D7E76"
+			x: 3.0d
+			y: 0.0d
+		}
+	]
+	quests: [
+		{
+			dependencies: ["516AA655EF6CBBF0"]
+			hide: false
+			id: "0F04364907145AF1"
+			optional: true
+			rewards: [{
+				id: "2ECD0C260CE78B1D"
+				item: "gtceu:gold_credit"
+				type: "item"
+			}]
+			tasks: [{
+				id: "2642F05E062ABFE7"
+				item: "gtlcore:mining_crystal"
+				type: "item"
+			}]
+			x: 3.0d
+			y: -1.5d
+		}
+		{
+			dependencies: ["516AA655EF6CBBF0"]
+			hide: false
+			id: "14B8DFAE3AA43497"
+			optional: true
+			rewards: [{
+				id: "00CDC7052E4078DA"
+				item: "gtceu:gold_credit"
+				type: "item"
+			}]
+			tasks: [{
+				id: "1502A8F3E92F8A9A"
+				item: "gtlcore:treasures_crystal"
+				type: "item"
+			}]
+			x: 3.0d
+			y: 1.5d
+		}
+		{
+			dependencies: ["0F4AFDE98CEA87B1"]
+			id: "516AA655EF6CBBF0"
+			optional: true
+			rewards: [
+				{
+					id: "4B811EA659C3E344"
+					item: "gtceu:ulv_fragment_world_collection_machine"
+					type: "item"
+				}
+				{
+					id: "0C673F89F25E302D"
+					item: "gtceu:ulv_solar_panel"
+					type: "item"
+				}
+			]
+			tasks: [{
+				id: "0ABA4D223034D5A2"
+				title: "矿从哪里来？"
+				type: "checkmark"
+			}]
+			x: 1.5d
+			y: 0.0d
+		}
+		{
+			dependencies: [
+				"0F04364907145AF1"
+				"14B8DFAE3AA43497"
+			]
+			hide: false
+			id: "1B664763E9558755"
+			optional: true
+			tasks: [{
+				id: "3BF94313D79C5A2E"
+				item: "gtceu:ulv_fragment_world_collection_machine"
+				type: "item"
+			}]
+			title: "第二台采集器"
+			x: 4.5d
+			y: 0.0d
+		}
+		{
+			dependencies: ["1B664763E9558755"]
+			description: ["空岛特供机器    不可超频"]
+			hide: false
+			id: "72FB1A140FACFA76"
+			optional: true
+			tasks: [{
+				id: "3FF19BC6685E0941"
+				item: "gtceu:large_fragment_world_collection_machine"
+				type: "item"
+			}]
+			x: 6.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["0F4AFDE98CEA87B1"]
+			id: "2DD0AD4DDBA7BFD0"
+			optional: true
+			rewards: [{
+				id: "3DF6CF1997E498F4"
+				item: "gtlcore:world_fragments_reactor"
+				type: "item"
+			}]
+			tasks: [{
+				id: "059A7D5CE5C83430"
+				item: "gtlcore:world_fragments_reactor"
+				type: "item"
+			}]
+			title: "其他维度的碎片"
+			x: 1.5d
+			y: 3.0d
+		}
+		{
+			dependencies: ["7F78340CB4A8EC59"]
+			hide: false
+			id: "7C24D5FD2C008BD4"
+			optional: true
+			tasks: [
+				{
+					count: 16L
+					id: "0BAE3168422F5761"
+					item: { Count: 16, id: "gtlcore:world_fragments_overworld" }
+					type: "item"
+				}
+				{
+					count: 16L
+					id: "79CB92FDE6BEB9FC"
+					item: "gtlcore:world_fragments_nether"
+					type: "item"
+				}
+				{
+					count: 16L
+					id: "496C01B52C6DBD8C"
+					item: "gtlcore:world_fragments_end"
+					type: "item"
+				}
+				{
+					count: 16L
+					id: "0A104EFE5E9E683F"
+					item: { Count: 16, id: "gtlcore:world_fragments_reactor" }
+					type: "item"
+				}
+				{
+					count: 16L
+					id: "7C6E1B1A4D7D8554"
+					item: { Count: 16, id: "gtlcore:world_fragments_moon" }
+					type: "item"
+				}
+				{
+					count: 16L
+					id: "1F6039B168CA9470"
+					item: { Count: 15, id: "gtlcore:world_fragments_mars" }
+					type: "item"
+				}
+				{
+					count: 16L
+					id: "27C6DAABD89164E3"
+					item: { Count: 16, id: "gtlcore:world_fragments_venus" }
+					type: "item"
+				}
+				{
+					count: 16L
+					id: "44C8227E8791D2D9"
+					item: { Count: 16, id: "gtlcore:world_fragments_mercury" }
+					type: "item"
+				}
+				{
+					count: 16L
+					id: "170E82CDF45615F7"
+					item: { Count: 16, id: "gtlcore:world_fragments_ceres" }
+					type: "item"
+				}
+				{
+					count: 16L
+					id: "09039A9DF31C12E4"
+					item: { Count: 16, id: "gtlcore:world_fragments_io" }
+					type: "item"
+				}
+				{
+					count: 16L
+					id: "3C28D03EB3041A1E"
+					item: { Count: 16, id: "gtlcore:world_fragments_ganymede" }
+					type: "item"
+				}
+				{
+					count: 16L
+					id: "70181E6CF015F973"
+					item: { Count: 16, id: "gtlcore:world_fragments_pluto" }
+					type: "item"
+				}
+				{
+					count: 16L
+					id: "23E1BE677D4714EB"
+					item: { Count: 16, id: "gtlcore:world_fragments_enceladus" }
+					type: "item"
+				}
+				{
+					count: 16L
+					id: "4D997304A419732E"
+					item: { Count: 16, id: "gtlcore:world_fragments_titan" }
+					type: "item"
+				}
+				{
+					count: 16L
+					id: "72641DCCB8B3FF0B"
+					item: { Count: 16, id: "gtlcore:world_fragments_glacio" }
+					type: "item"
+				}
+				{
+					count: 16L
+					id: "26076428CEFF5CFC"
+					item: { Count: 16, id: "gtlcore:world_fragments_barnarda" }
+					type: "item"
+				}
+			]
+			title: "所有维度碎片"
+			x: 4.5d
+			y: 3.0d
+		}
+		{
+			dependencies: ["2DD0AD4DDBA7BFD0"]
+			hide: false
+			id: "7F78340CB4A8EC59"
+			optional: true
+			subtitle: "主世界313格以上是无重力环境"
+			tasks: [
+				{
+					id: "3199CC797450EAEB"
+					item: {
+						Count: 1
+						id: "ad_astra:tier_1_rocket"
+						tag: { }
+					}
+					type: "item"
+				}
+				{
+					id: "5B9D40351A69AA3B"
+					item: "gtlcore:world_fragments_moon"
+					type: "item"
+				}
+			]
+			title: "太空在哪里"
+			x: 3.0d
+			y: 3.0d
+		}
+		{
+			dependencies: ["7C24D5FD2C008BD4"]
+			hide: false
+			id: "5F403C7AE4B5486C"
+			optional: true
+			tasks: [{
+				count: 8L
+				id: "198616959D137813"
+				item: { Count: 8, id: "gtlcore:miracle_crystal" }
+				type: "item"
+			}]
+			x: 6.0d
+			y: 3.0d
+		}
+		{
+			dependencies: ["5F403C7AE4B5486C"]
+			hide: false
+			id: "14E8D6FF37930A06"
+			optional: true
+			tasks: [{
+				id: "1F5DC856A1D6FB99"
+				title: "这个维度可逃不了"
+				type: "checkmark"
+			}]
+			x: 7.5d
+			y: 3.0d
+		}
+		{
+			dependencies: ["0F4AFDE98CEA87B1"]
+			hide_dependency_lines: true
+			id: "66C8E56877EB2C27"
+			rewards: [
+				{
+					id: "1A114E870FCE0EA5"
+					item: "minecraft:oak_sapling"
+					type: "item"
+				}
+				{
+					id: "3EC45E3DE133EC2D"
+					item: "minecraft:spruce_sapling"
+					type: "item"
+				}
+				{
+					id: "57D6E06AE3BB3F3B"
+					item: "minecraft:birch_sapling"
+					type: "item"
+				}
+				{
+					id: "7F92C4560AD4D06A"
+					item: "minecraft:jungle_sapling"
+					type: "item"
+				}
+				{
+					id: "2730EB7D64BEDAA2"
+					item: "minecraft:acacia_sapling"
+					type: "item"
+				}
+				{
+					id: "28D0AEAB246DB69D"
+					item: "minecraft:dark_oak_sapling"
+					type: "item"
+				}
+			]
+			tasks: [{
+				id: "57B247D17151F041"
+				title: "树苗大礼包"
+				type: "checkmark"
+			}]
+			x: -1.5d
+			y: 0.0d
+		}
+		{
+			dependencies: ["0F4AFDE98CEA87B1"]
+			description: [
+				"如果你想开一个空岛版的服务器"
+				"你需要修改"
+				""
+				"config/gtlcore.yaml里面"
+				"enableSkyBlokeMode改成true"
+				""
+				"server.properties里面的"
+				"level-type改成skyblockbuilder\\:skyblock"
+				""
+				"而且我建议你查看skyblock builder的wiki"
+				"wiki.chaotictrials.de/docs/wiki/skyblock-builder/"
+				"以了解相关指令"
+			]
+			hide_dependency_lines: true
+			id: "312C7E81F1B9880D"
+			tasks: [{
+				id: "05C535F1D6443E3B"
+				title: "有关内容"
+				type: "checkmark"
+			}]
+			x: -1.5d
+			y: 3.0d
+		}
+	]
+	title: "空岛模式"
+}
