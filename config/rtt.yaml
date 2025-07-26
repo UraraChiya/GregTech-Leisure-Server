@@ -1,0 +1,9 @@
+# 开启湛紫微光和微光主机合成表的注册，注意这可能会破坏游戏平衡性
+EnableDeepvioletgleamAndCircuitRecipe: false
+
+# 开启通用蒸汽机，这可能会有点小OP
+EnableTheGeneralSteamEngine: false
+
+# 开启方便AE配方，比较OP
+EnableFreeAe: false
+

@@ -93,6 +93,10 @@
     "jade_chamber": true,
     "jade_wireless": true
   },
+  "gtlcore": {
+    "tick_time_provider": true,
+    "wireless_data_hatch_provider": true
+  },
   "ae2": {
     "part_icon": true,
     "charger": true,

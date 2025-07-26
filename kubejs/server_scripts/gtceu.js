@@ -17312,7 +17312,7 @@ ServerEvents.recipes((event) => {
         .itemOutputs("1x gtceu:sulfur_dust")
         .duration(120)
         .EUt(30)
-/*
+
     gtr.fragment_world_collection("gtceu:make_world_fragments_10")
         .itemInputs("gtlcore:world_fragments_overworld")
         .notConsumable("ad_astra_rocketed:tier_6_rocket")
@@ -17340,7 +17340,7 @@ ServerEvents.recipes((event) => {
          .circuit(30)
          .duration(200)
          .EUt(8)
-*/
+
     gtr.dimensional_focus_engraving_array("gtceu:fullerene_dust2")
          .itemInputs("gtceu:unfolded_fullerene_dust")
          .notConsumable("gtceu:ruby_lens")

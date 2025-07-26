@@ -4,6 +4,8 @@
 # Server Starter Version 0.4
 
 <# ChangeLog
+    v1.2.2 17/07/2025
+    检测端口可能出错，不再阻止启动
     v1.2.1 18/06/2025
     修正自动服务器配置
     v1.2 07/07/2025
@@ -506,7 +508,7 @@ function Install-Server {
                             $VanillaServerUrl = $VanillaMirrorAPI -f $Script:MinecraftVersion
                             $DownloadUri = $VanillaServerUrl
                             # \libraries\net\minecraft\server\1.20.1\server-1.20.1.jar
-                            invoke-webrequest -Uri $DownloadUri -OutFile $VanillaServerPath
+                            Invoke-WebRequest -Uri $DownloadUri -OutFile $VanillaServerPath
                         }
                         catch {
                             Write-Host $_ -ForegroundColor Red
@@ -572,7 +574,7 @@ function Install-Server {
                         $VanillaServerUrl = $VanillaMirrorAPI -f $Script:MinecraftVersion
                         $DownloadUri = $VanillaServerUrl
                         # \libraries\net\minecraft\server\1.20.1\server-1.20.1.jar
-                        invoke-webrequest -Uri $DownloadUri -OutFile $VanillaServerPath
+                        Invoke-WebRequest -Uri $DownloadUri -OutFile $VanillaServerPath
                     }
                     catch {
                         Write-Host $_ -ForegroundColor Red
@@ -697,7 +699,7 @@ function Test-Properties {
         $PortInUse = $null -ne (lsof -i :$Script:ServerPort)
     }
     if ($PortInUse) {
-        Write-Host "端口 $Script:ServerPort 已被占用，请修改配置文件中的 ServerPort" -ForegroundColor Red
+        Write-Host "端口 $Script:ServerPort 可能已被占用，请修改配置文件中的 ServerPort" -ForegroundColor Red
         Exit-Script
     }
     # 检查是否存在 server.properties 文件

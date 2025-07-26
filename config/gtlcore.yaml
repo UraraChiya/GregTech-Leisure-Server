@@ -1,8 +1,6 @@
 disableDrift: true
 
-enablePrimitiveVoidOre: false
-
-enableSkyBlokeMode: false
+enableSkyBlokeMode: true
 
 oreMultiplier: 4
 
@@ -10,12 +8,19 @@ cellType: 4
 
 spacetimePip: 2147483647
 
-durationMultiplier: 1.0
+durationMultiplier: 0.05
 
 travelStaffCD: 2
 
-# 鏇村ぇ鐨勬暟鍊间細璁╃晫闈㈡樉绀烘湁闂锛屾帹鑽愬湪鏍锋澘绠＄悊缁堢绠＄悊
-exPatternProvider: 36
+# 更大的数值会让界面显示有问题，推荐在样板管理终端管理
+exPatternProvider: 72
+
+enablePrimitiveVoidOre: true
+
+# 连锁黑名单,支持通配符*
+blackBlockList:
+  - ae2:cable_bus
+  - minecraft:grass_block
 
 mobList1:
   - chicken
