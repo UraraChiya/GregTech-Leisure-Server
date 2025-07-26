@@ -20,6 +20,7 @@ local
 logs
 modernfix
 mods/*.disabled
+mods/.index
 world
 
 banned-ips.json
