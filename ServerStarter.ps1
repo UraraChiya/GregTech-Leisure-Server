@@ -700,7 +700,6 @@ function Test-Properties {
     }
     if ($PortInUse) {
         Write-Host "端口 $Script:ServerPort 可能已被占用，请修改配置文件中的 ServerPort" -ForegroundColor Red
-        Exit-Script
     }
     # 检查是否存在 server.properties 文件
     if (-not (Test-Path -Path 'server.properties' -PathType Leaf)) {
