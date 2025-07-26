@@ -6,6 +6,9 @@ $Script:ServerName = 'GregTech-Leisure'
 # 模组加载器 'Vanilla', 'Forge', 'Custom'
 $Script:ModLoader = 'Forge'
 
+# 是否使用国内镜像下载 Vanilla 客户端（即使是模组端也得下载）
+$Script:VanillaMirror = [bool]$true
+
 # 模组加载器安装器版本（Fabric 需要此项）
 $Script:ModLoaderInstallerVersion = [version]'0.0.1'
 
@@ -13,10 +16,7 @@ $Script:ModLoaderInstallerVersion = [version]'0.0.1'
 $Script:MinecraftVersion = [version]'1.20.1'
 
 # 模组加载器版本，原版可忽略此设置
-$Script:ModLoaderVersion = [version]'47.3.5'
-
-# Java 命令行，可填写 “java.exe” 的路径
-$Script:Java = 'java'
+$Script:ModLoaderVersion = [string]'47.3.5'
 
 # 是否跳过 Java 兼容性检查
 $Script:SkipJavaCompatibilityCheck = [bool]$false
@@ -39,3 +39,11 @@ $Script:MinRestartTime = '120'
 # 自定义启动命令（Custom 需要）
 $Script:CustomLaunchCommand = ''
 
+# 是否允许飞行
+$Script:ServerAllowFlight = [bool]$true
+
+# 是否启用命令方块
+$Script:ServerEnableCommandBlock = [bool]$true
+
+# 是否强制使用安全配置文件（聊天签名）
+$Script:ServerEnforceSecureProfile = [bool]$false
